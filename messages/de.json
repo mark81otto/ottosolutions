@@ -1,0 +1,110 @@
+{
+  "Nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "cta": "Anfragen"
+  },
+  "Hero": {
+    "eyebrow": "Otto Solutions SL — Valencia, España",
+    "h1Line1": "Apps.",
+    "h1Line2": "Websites.",
+    "h1Line3": "Dynamics.",
+    "sub": "Digitale Produkte die wirklich funktionieren — für iOS, Android, Web und Microsoft Dynamics 365.",
+    "ctaPrimary": "Portfolio ansehen",
+    "ctaSecondary": "Projekt anfragen",
+    "scroll": "Scroll"
+  },
+  "StickyText": {
+    "main": "Wir bauen was",
+    "highlight": "zählt."
+  },
+  "Services": {
+    "tag": "Leistungen",
+    "h2Line1": "Was wir",
+    "h2Line2": "für dich bauen.",
+    "lead": "Drei Kernkompetenzen. Ein Team. Kein Outsourcing.",
+    "s1Title": "iOS & Android Apps",
+    "s1Desc": "Native und cross-platform Mobile-Apps von der Idee bis zum Launch. UX/UI, Development und App Store Rollout aus einer Hand.",
+    "s2Title": "Website-Entwicklung",
+    "s2Desc": "Performante Websites und Web-Apps mit Next.js — optimiert für Speed, SEO und Konversion. Mit Effekten die begeistern.",
+    "s3Title": "Microsoft Dynamics 365",
+    "s3Desc": "Implementierung, Customizing und tiefgehende Integration von Dynamics 365 — CRM, ERP und Power Platform.",
+    "ctaTitle": "Bereit für dein Projekt?",
+    "ctaButton": "Jetzt anfragen"
+  },
+  "Stats": {
+    "tag": "In Zahlen",
+    "h2Line1": "Ergebnisse die",
+    "h2Highlight": "sprechen.",
+    "label1": "Abgeschlossene Projekte",
+    "label2": "Kernkompetenzen",
+    "label3": "Kundenzufriedenheit",
+    "label4": "Sprachen — DE · EN · ES"
+  },
+  "Interlude": {
+    "h2Line1": "Von",
+    "h2Highlight": "Valencia",
+    "h2Line2": "für die Welt.",
+    "sub": "Als spanische SL entwickeln wir für Kunden in Deutschland, Spanien und ganz Europa — remote, pünktlich, auf drei Sprachen.",
+    "cta": "Mehr über uns"
+  },
+  "Portfolio": {
+    "tag": "Portfolio",
+    "h2Line1": "Ausgewählte",
+    "h2Highlight": "Arbeiten.",
+    "lead": "Jede Lösung ist maßgeschneidert.",
+    "p1Title": "Logistik-App für KMU",
+    "p1Desc": "Echtzeit-Tracking und Auftragsmanagement — integriert mit bestehendem ERP-System. Offline-fähig, multi-device.",
+    "p1Tag": "✓ App Store Ready",
+    "p2Title": "Multi-Language Shop",
+    "p2Desc": "E-Commerce für den spanischen Markt mit DE · EN · ES Support.",
+    "p3Title": "D365 CRM-Implementierung",
+    "p3Desc": "Vollständiges CRM-Setup mit Power Automate Workflows und Azure-Integration."
+  },
+  "About": {
+    "tag": "Über uns",
+    "h2Line1": "Wir sind",
+    "h2Line2": "Otto Solutions.",
+    "p1": "Als spanische SL mit Sitz in Valencia entwickeln wir digitale Produkte für Kunden in Deutschland, Spanien und ganz Europa — auf Augenhöhe, mit echtem Qualitätsanspruch.",
+    "p2": "Wir sprechen fließend Deutsch, Englisch und Spanisch und liefern Projekte pünktlich, im Budget und mit Leidenschaft.",
+    "factForm": "Rechtsform",
+    "factFormVal": "Sociedad Limitada (SL)",
+    "factLoc": "Standort",
+    "factLocVal": "Valencia, España",
+    "factLang": "Sprachen",
+    "factLangVal": "Deutsch · Englisch · Spanisch",
+    "factFocus": "Fokus",
+    "factFocusVal": "Mobile · Web · Dynamics 365",
+    "cardRole": "Founder & Lead Developer",
+    "cardBio": "Wir bauen digitale Produkte mit Fokus auf sauberen Code, durchdachtes Design und messbaren Business-Impact. Kein Outsourcing, kein Copy-paste.",
+    "available": "Valencia, España — verfügbar für neue Projekte"
+  },
+  "Contact": {
+    "tag": "Kontakt",
+    "h2Line1": "Lass uns",
+    "h2Highlight": "reden.",
+    "lead": "Ob kleines MVP oder großes Enterprise-Projekt — wir hören zu und machen daraus etwas, das wirklich funktioniert.",
+    "locLabel": "Standort",
+    "locVal": "Valencia, España",
+    "mailLabel": "E-Mail",
+    "phoneLabel": "Telefon",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "email": "E-Mail-Adresse",
+    "servicePlaceholder": "Leistung wählen…",
+    "service1": "iOS / Android App",
+    "service2": "Website-Entwicklung",
+    "service3": "Microsoft Dynamics 365",
+    "service4": "Komplettpaket",
+    "service5": "Sonstiges",
+    "message": "Beschreib dein Projekt kurz…",
+    "submit": "Anfrage absenden"
+  },
+  "Footer": {
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "legal": "Aviso Legal"
+  }
+}

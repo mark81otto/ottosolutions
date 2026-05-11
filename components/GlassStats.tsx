@@ -1,12 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-
-const stats = [
-  { n: 30, suffix: '+', label: 'Abgeschlossene\nProjekte' },
-  { n: 3,  suffix: '',  label: 'Kernkompetenzen' },
-  { n: 100, suffix: '%', label: 'Kundenzufriedenheit' },
-  { n: 3,  suffix: '',  label: 'Sprachen\nDE · EN · ES' },
-]
+import { useTranslations } from 'next-intl'
 
 function Counter({ target, suffix }: { target: number; suffix: string }) {
   const [val, setVal] = useState(0)
@@ -35,14 +29,21 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 }
 
 export default function GlassStats() {
+  const t = useTranslations('Stats')
+
+  const stats = [
+    { n: 30,  suffix: '+', label: t('label1') },
+    { n: 3,   suffix: '',  label: t('label2') },
+    { n: 100, suffix: '%', label: t('label3') },
+    { n: 3,   suffix: '',  label: t('label4') },
+  ]
+
   return (
     <div className="relative overflow-hidden py-32 px-10 flex items-center min-h-[60vh]">
-      {/* Dark bg */}
       <div
         className="absolute inset-0"
         style={{ background: 'linear-gradient(160deg,#0a0a0f 0%,#111122 50%,#0a0a0f 100%)' }}
       />
-      {/* Blobs */}
       <div
         className="absolute w-[600px] h-[600px] rounded-full float-blob-1 pointer-events-none"
         style={{
@@ -59,20 +60,17 @@ export default function GlassStats() {
       />
 
       <div className="relative z-10 w-full">
-        <span className="block text-[0.72rem] tracking-[0.08em] uppercase text-white/30 mb-5">In Zahlen</span>
+        <span className="block text-[0.72rem] tracking-[0.08em] uppercase text-white/30 mb-5">{t('tag')}</span>
         <h2
           className="font-serif font-normal text-white mb-20"
           style={{ fontSize: 'clamp(2.5rem,5vw,4.5rem)', letterSpacing: '-2px', lineHeight: 1.02 }}
         >
-          Ergebnisse die <em className="text-white/40">sprechen.</em>
+          {t('h2Line1')} <em className="text-white/40">{t('h2Highlight')}</em>
         </h2>
 
         <div className="grid grid-cols-4 gap-6">
-          {stats.map((s) => (
-            <div
-              key={s.label}
-              className="glass-dark rounded-2xl p-10 hover:-translate-y-1 transition-transform"
-            >
+          {stats.map((s, i) => (
+            <div key={i} className="glass-dark rounded-2xl p-10 hover:-translate-y-1 transition-transform">
               <div
                 className="font-serif font-normal text-white leading-none mb-3"
                 style={{ fontSize: 'clamp(3rem,5vw,4.5rem)', letterSpacing: '-3px' }}

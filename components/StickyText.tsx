@@ -1,7 +1,9 @@
 'use client'
 import { useEffect, useRef } from 'react'
+import { useTranslations } from 'next-intl'
 
 export default function StickyText() {
+  const t = useTranslations('StickyText')
   const txtRef = useRef<HTMLDivElement>(null)
   const secRef = useRef<HTMLDivElement>(null)
 
@@ -24,7 +26,7 @@ export default function StickyText() {
           className="font-serif font-normal text-ink whitespace-nowrap px-10 will-change-transform transition-none"
           style={{ fontSize: 'clamp(5rem, 14vw, 13rem)', letterSpacing: '-5px', lineHeight: 0.9 }}
         >
-          Wir bauen was&nbsp;<em className="text-[#0057ff]">zählt.</em>
+          {t('main')}&nbsp;<em className="text-[#0057ff]">{t('highlight')}</em>
         </div>
       </div>
     </div>

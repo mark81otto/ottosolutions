@@ -1,0 +1,110 @@
+{
+  "Nav": {
+    "services": "Servicios",
+    "portfolio": "Portfolio",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "cta": "Contactar"
+  },
+  "Hero": {
+    "eyebrow": "Otto Solutions SL — Valencia, España",
+    "h1Line1": "Apps.",
+    "h1Line2": "Webs.",
+    "h1Line3": "Dynamics.",
+    "sub": "Productos digitales que funcionan de verdad — para iOS, Android, Web y Microsoft Dynamics 365.",
+    "ctaPrimary": "Ver portfolio",
+    "ctaSecondary": "Iniciar proyecto",
+    "scroll": "Scroll"
+  },
+  "StickyText": {
+    "main": "Construimos lo que",
+    "highlight": "importa."
+  },
+  "Services": {
+    "tag": "Servicios",
+    "h2Line1": "Qué",
+    "h2Line2": "construimos para ti.",
+    "lead": "Tres competencias clave. Un equipo. Sin outsourcing.",
+    "s1Title": "Apps iOS y Android",
+    "s1Desc": "Apps móviles nativas y multiplataforma desde la idea hasta el lanzamiento. UX/UI, desarrollo y publicación en App Store — todo de la mano.",
+    "s2Title": "Desarrollo Web",
+    "s2Desc": "Webs y web apps de alto rendimiento con Next.js — optimizadas para velocidad, SEO y conversión. Con efectos que enamoran.",
+    "s3Title": "Microsoft Dynamics 365",
+    "s3Desc": "Implementación, personalización e integración profunda de Dynamics 365 — CRM, ERP y Power Platform.",
+    "ctaTitle": "¿Listo para tu proyecto?",
+    "ctaButton": "Contactar"
+  },
+  "Stats": {
+    "tag": "En números",
+    "h2Line1": "Resultados que",
+    "h2Highlight": "hablan.",
+    "label1": "Proyectos completados",
+    "label2": "Competencias clave",
+    "label3": "Satisfacción del cliente",
+    "label4": "Idiomas — DE · EN · ES"
+  },
+  "Interlude": {
+    "h2Line1": "Desde",
+    "h2Highlight": "Valencia",
+    "h2Line2": "al mundo.",
+    "sub": "Como SL española trabajamos con clientes en Alemania, España y toda Europa — en remoto, a tiempo, en tres idiomas.",
+    "cta": "Más sobre nosotros"
+  },
+  "Portfolio": {
+    "tag": "Portfolio",
+    "h2Line1": "Trabajos",
+    "h2Highlight": "seleccionados.",
+    "lead": "Cada solución hecha a medida.",
+    "p1Title": "App logística para PYMEs",
+    "p1Desc": "Seguimiento en tiempo real y gestión de pedidos — integrado con sistemas ERP existentes. Funciona offline, multi-dispositivo.",
+    "p1Tag": "✓ App Store Ready",
+    "p2Title": "Tienda multi-idioma",
+    "p2Desc": "Plataforma e-commerce para el mercado español con soporte completo DE · EN · ES.",
+    "p3Title": "Implementación CRM D365",
+    "p3Desc": "Configuración CRM completa con flujos de Power Automate e integración Azure."
+  },
+  "About": {
+    "tag": "Sobre nosotros",
+    "h2Line1": "Somos",
+    "h2Line2": "Otto Solutions.",
+    "p1": "Como SL española con sede en Valencia, desarrollamos productos digitales para clientes en Alemania, España y toda Europa — de tú a tú, con calidad real.",
+    "p2": "Hablamos alemán, inglés y español con fluidez y entregamos los proyectos a tiempo, dentro del presupuesto y con pasión.",
+    "factForm": "Forma jurídica",
+    "factFormVal": "Sociedad Limitada (SL)",
+    "factLoc": "Ubicación",
+    "factLocVal": "Valencia, España",
+    "factLang": "Idiomas",
+    "factLangVal": "Alemán · Inglés · Español",
+    "factFocus": "Especialización",
+    "factFocusVal": "Mobile · Web · Dynamics 365",
+    "cardRole": "Founder & Lead Developer",
+    "cardBio": "Construimos productos digitales con foco en código limpio, diseño pensado e impacto real en el negocio. Sin outsourcing, sin copia y pega.",
+    "available": "Valencia, España — disponibles para nuevos proyectos"
+  },
+  "Contact": {
+    "tag": "Contacto",
+    "h2Line1": "Vamos a",
+    "h2Highlight": "hablar.",
+    "lead": "Ya sea un pequeño MVP o un gran proyecto empresarial — escuchamos y lo convertimos en algo que funciona de verdad.",
+    "locLabel": "Ubicación",
+    "locVal": "Valencia, España",
+    "mailLabel": "Email",
+    "phoneLabel": "Teléfono",
+    "firstName": "Nombre",
+    "lastName": "Apellidos",
+    "email": "Dirección de email",
+    "servicePlaceholder": "Elige un servicio…",
+    "service1": "App iOS / Android",
+    "service2": "Desarrollo Web",
+    "service3": "Microsoft Dynamics 365",
+    "service4": "Paquete completo",
+    "service5": "Otro",
+    "message": "Cuéntanos brevemente tu proyecto…",
+    "submit": "Enviar solicitud"
+  },
+  "Footer": {
+    "imprint": "Aviso Legal",
+    "privacy": "Política de Privacidad",
+    "legal": "Política de Cookies"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "Nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Get in touch"
+  },
+  "Hero": {
+    "eyebrow": "Otto Solutions SL — Valencia, Spain",
+    "h1Line1": "Apps.",
+    "h1Line2": "Websites.",
+    "h1Line3": "Dynamics.",
+    "sub": "Digital products that actually work — for iOS, Android, Web and Microsoft Dynamics 365.",
+    "ctaPrimary": "View portfolio",
+    "ctaSecondary": "Start a project",
+    "scroll": "Scroll"
+  },
+  "StickyText": {
+    "main": "We build what",
+    "highlight": "matters."
+  },
+  "Services": {
+    "tag": "Services",
+    "h2Line1": "What we",
+    "h2Line2": "build for you.",
+    "lead": "Three core competencies. One team. No outsourcing.",
+    "s1Title": "iOS & Android Apps",
+    "s1Desc": "Native and cross-platform mobile apps from idea to launch. UX/UI, development and App Store rollout — all in one place.",
+    "s2Title": "Web Development",
+    "s2Desc": "High-performance websites and web apps built with Next.js — optimized for speed, SEO and conversion. With effects that wow.",
+    "s3Title": "Microsoft Dynamics 365",
+    "s3Desc": "Implementation, customization and deep integration of Dynamics 365 — CRM, ERP and Power Platform.",
+    "ctaTitle": "Ready for your project?",
+    "ctaButton": "Get in touch"
+  },
+  "Stats": {
+    "tag": "By the numbers",
+    "h2Line1": "Results that",
+    "h2Highlight": "speak.",
+    "label1": "Completed projects",
+    "label2": "Core competencies",
+    "label3": "Customer satisfaction",
+    "label4": "Languages — DE · EN · ES"
+  },
+  "Interlude": {
+    "h2Line1": "From",
+    "h2Highlight": "Valencia",
+    "h2Line2": "to the world.",
+    "sub": "As a Spanish company we work with clients across Germany, Spain and Europe — remote, on time, in three languages.",
+    "cta": "More about us"
+  },
+  "Portfolio": {
+    "tag": "Portfolio",
+    "h2Line1": "Selected",
+    "h2Highlight": "work.",
+    "lead": "Every solution is tailor-made.",
+    "p1Title": "Logistics app for SMBs",
+    "p1Desc": "Real-time tracking and order management — integrated with existing ERP systems. Offline-capable, multi-device.",
+    "p1Tag": "✓ App Store Ready",
+    "p2Title": "Multi-language shop",
+    "p2Desc": "E-commerce platform for the Spanish market with full DE · EN · ES support.",
+    "p3Title": "D365 CRM implementation",
+    "p3Desc": "Complete CRM setup with Power Automate workflows and Azure integration."
+  },
+  "About": {
+    "tag": "About us",
+    "h2Line1": "We are",
+    "h2Line2": "Otto Solutions.",
+    "p1": "As a Spanish SL based in Valencia, we build digital products for clients in Germany, Spain and across Europe — as equals, with real quality.",
+    "p2": "We speak fluent German, English and Spanish and deliver projects on time, on budget and with passion.",
+    "factForm": "Legal form",
+    "factFormVal": "Sociedad Limitada (SL)",
+    "factLoc": "Location",
+    "factLocVal": "Valencia, Spain",
+    "factLang": "Languages",
+    "factLangVal": "German · English · Spanish",
+    "factFocus": "Focus",
+    "factFocusVal": "Mobile · Web · Dynamics 365",
+    "cardRole": "Founder & Lead Developer",
+    "cardBio": "We build digital products with focus on clean code, thoughtful design and real business impact. No outsourcing, no copy-paste.",
+    "available": "Valencia, Spain — available for new projects"
+  },
+  "Contact": {
+    "tag": "Contact",
+    "h2Line1": "Let's",
+    "h2Highlight": "talk.",
+    "lead": "Whether it's a small MVP or a large enterprise project — we listen and turn it into something that actually works.",
+    "locLabel": "Location",
+    "locVal": "Valencia, Spain",
+    "mailLabel": "Email",
+    "phoneLabel": "Phone",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email address",
+    "servicePlaceholder": "Choose service…",
+    "service1": "iOS / Android App",
+    "service2": "Web development",
+    "service3": "Microsoft Dynamics 365",
+    "service4": "Full package",
+    "service5": "Other",
+    "message": "Briefly describe your project…",
+    "submit": "Send request"
+  },
+  "Footer": {
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "legal": "Legal notice"
+  }
+}

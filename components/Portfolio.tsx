@@ -1,37 +1,8 @@
 'use client'
 import { useRef, MouseEvent } from 'react'
+import { useTranslations } from 'next-intl'
 
-const projects = [
-  {
-    large: true,
-    bg: 'linear-gradient(135deg,#dbeafe,#eff6ff)',
-    accent: '#0057ff',
-    cat: 'iOS · Android',
-    title: 'Logistik-App für KMU',
-    desc: 'Echtzeit-Tracking und Auftragsmanagement — integriert mit bestehendem ERP-System. Offline-fähig, multi-device.',
-    tag: '✓ App Store Ready',
-  },
-  {
-    large: false,
-    bg: 'linear-gradient(135deg,#dcfce7,#f0fdf4)',
-    accent: '#16a34a',
-    cat: 'Next.js · E-Commerce',
-    title: 'Multi-Language Shop',
-    desc: 'E-Commerce für den spanischen Markt mit DE · EN · ES Support.',
-    tag: 'DE · EN · ES',
-  },
-  {
-    large: false,
-    bg: 'linear-gradient(135deg,#ede9fe,#faf5ff)',
-    accent: '#7c3aed',
-    cat: 'Dynamics 365',
-    title: 'D365 CRM-Implementierung',
-    desc: 'Vollständiges CRM-Setup mit Power Automate Workflows und Azure-Integration.',
-    tag: 'D365 · Power Apps',
-  },
-]
-
-function TiltCard({ p, large }: { p: typeof projects[0]; large: boolean }) {
+function TiltCard({ p, large }: { p: any; large: boolean }) {
   const ref = useRef<HTMLDivElement>(null)
 
   const onMove = (e: MouseEvent) => {
@@ -57,12 +28,10 @@ function TiltCard({ p, large }: { p: typeof projects[0]; large: boolean }) {
       className={`bg-white border border-black/[0.07] rounded-[20px] overflow-hidden transition-[box-shadow] duration-300 cursor-default ${large ? 'col-span-2' : ''}`}
       style={{ transitionProperty: 'box-shadow', transformStyle: 'preserve-3d' }}
     >
-      {/* Thumb */}
       <div
         className="relative overflow-hidden flex items-center justify-center"
         style={{ height: large ? '320px' : '220px', background: p.bg }}
       >
-        {/* Grid lines */}
         <div
           className="absolute inset-0"
           style={{
@@ -70,7 +39,6 @@ function TiltCard({ p, large }: { p: typeof projects[0]; large: boolean }) {
             backgroundSize: '32px 32px',
           }}
         />
-        {/* Glass UI mock */}
         <div
           className="relative z-10 rounded-[14px] p-5 w-[220px]"
           style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.8)', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}
@@ -93,7 +61,6 @@ function TiltCard({ p, large }: { p: typeof projects[0]; large: boolean }) {
         </div>
       </div>
 
-      {/* Body */}
       <div className="p-8">
         <div className="text-[0.68rem] mb-2 tracking-[0.06em] uppercase" style={{ color: p.accent }}>
           {p.cat}
@@ -111,20 +78,52 @@ function TiltCard({ p, large }: { p: typeof projects[0]; large: boolean }) {
 }
 
 export default function Portfolio() {
+  const t = useTranslations('Portfolio')
+
+  const projects = [
+    {
+      large: true,
+      bg: 'linear-gradient(135deg,#dbeafe,#eff6ff)',
+      accent: '#0057ff',
+      cat: 'iOS · Android',
+      title: t('p1Title'),
+      desc: t('p1Desc'),
+      tag: t('p1Tag'),
+    },
+    {
+      large: false,
+      bg: 'linear-gradient(135deg,#dcfce7,#f0fdf4)',
+      accent: '#16a34a',
+      cat: 'Next.js · E-Commerce',
+      title: t('p2Title'),
+      desc: t('p2Desc'),
+      tag: 'DE · EN · ES',
+    },
+    {
+      large: false,
+      bg: 'linear-gradient(135deg,#ede9fe,#faf5ff)',
+      accent: '#7c3aed',
+      cat: 'Dynamics 365',
+      title: t('p3Title'),
+      desc: t('p3Desc'),
+      tag: 'D365 · Power Apps',
+    },
+  ]
+
   return (
     <section id="portfolio" className="py-40 px-10 bg-white">
       <div className="flex justify-between items-end mb-16">
         <div>
-          <span className="block text-[0.72rem] font-medium text-mid tracking-[0.08em] uppercase mb-5">Portfolio</span>
+          <span className="block text-[0.72rem] font-medium text-mid tracking-[0.08em] uppercase mb-5">{t('tag')}</span>
           <h2
             className="font-serif font-normal text-ink"
             style={{ fontSize: 'clamp(2.8rem,6vw,5.5rem)', letterSpacing: '-2.5px', lineHeight: 1.02 }}
           >
-            Ausgewählte<br /><em className="text-mid">Arbeiten.</em>
+            {t('h2Line1')}<br /><em className="text-mid">{t('h2Highlight')}</em>
           </h2>
         </div>
         <p className="text-[1rem] font-light text-mid max-w-[300px] text-right leading-[1.8]">
-          Jede Lösung ist maßgeschneidert.
+          {t('lead')}
         </p>
       </div>
 
