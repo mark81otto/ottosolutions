@@ -15,14 +15,14 @@ export async function generateMetadata({
   const { locale } = await params
 
   const titles: Record<string, string> = {
-    de: 'Otto Solutions SL — Apps · Websites · Dynamics 365',
-    en: 'Otto Solutions SL — Apps · Websites · Dynamics 365',
-    es: 'Otto Solutions SL — Apps · Webs · Dynamics 365',
+    de: 'Otto Solutions SL — Apps & Websites aus Valencia',
+    en: 'Otto Solutions SL — Apps & Websites from Valencia',
+    es: 'Otto Solutions SL — Apps y Webs desde Valencia',
   }
   const descs: Record<string, string> = {
-    de: 'Wir entwickeln iOS & Android Apps, performante Websites und Microsoft Dynamics 365 Lösungen — aus Valencia, Spanien.',
-    en: 'We build iOS & Android apps, high-performance websites and Microsoft Dynamics 365 solutions — from Valencia, Spain.',
-    es: 'Desarrollamos apps iOS y Android, webs de alto rendimiento y soluciones Microsoft Dynamics 365 — desde Valencia, España.',
+    de: 'Wir entwickeln native iOS & Android Apps und performante Websites mit Next.js — aus Valencia, Spanien.',
+    en: 'We build native iOS & Android apps and high-performance websites with Next.js — from Valencia, Spain.',
+    es: 'Desarrollamos apps nativas iOS y Android y webs de alto rendimiento con Next.js — desde Valencia, España.',
   }
 
   return {

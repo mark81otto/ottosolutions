@@ -20,6 +20,13 @@ function TiltCard({ p, large }: { p: any; large: boolean }) {
     ref.current.style.boxShadow = ''
   }
 
+  const accentRgb = (hex: string) => {
+    if (hex === '#3DC9F0') return '61,201,240'
+    if (hex === '#16a34a') return '22,163,74'
+    if (hex === '#7c3aed') return '124,58,237'
+    return '61,201,240'
+  }
+
   return (
     <div
       ref={ref}
@@ -54,7 +61,7 @@ function TiltCard({ p, large }: { p: any; large: boolean }) {
           </div>
           <span
             className="inline-flex items-center gap-1 text-[0.6rem] font-medium rounded-full px-2.5 py-1"
-            style={{ background: `rgba(${p.accent === '#0057ff' ? '0,87,255' : p.accent === '#16a34a' ? '22,163,74' : '124,58,237'},0.1)`, color: p.accent }}
+            style={{ background: `rgba(${accentRgb(p.accent)},0.1)`, color: p.accent }}
           >
             {p.tag}
           </span>
@@ -83,8 +90,8 @@ export default function Portfolio() {
   const projects = [
     {
       large: true,
-      bg: 'linear-gradient(135deg,#dbeafe,#eff6ff)',
-      accent: '#0057ff',
+      bg: 'linear-gradient(135deg,#d0faf7,#e8f7fd)',
+      accent: '#3DC9F0',
       cat: 'iOS · Android',
       title: t('p1Title'),
       desc: t('p1Desc'),
@@ -101,12 +108,12 @@ export default function Portfolio() {
     },
     {
       large: false,
-      bg: 'linear-gradient(135deg,#ede9fe,#faf5ff)',
-      accent: '#7c3aed',
-      cat: 'Dynamics 365',
+      bg: 'linear-gradient(135deg,#d0f0ff,#f0faff)',
+      accent: '#3DC9F0',
+      cat: 'iOS · Swift',
       title: t('p3Title'),
       desc: t('p3Desc'),
-      tag: 'D365 · Power Apps',
+      tag: t('p3Tag'),
     },
   ]
 

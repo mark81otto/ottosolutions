@@ -5,9 +5,16 @@ export default function Services() {
   const t = useTranslations('Services')
 
   const services = [
-    { num: '01', icon: '📱', title: t('s1Title'), desc: t('s1Desc'), chips: ['Swift', 'Kotlin', 'React Native', 'Flutter'] },
-    { num: '02', icon: '🌐', title: t('s2Title'), desc: t('s2Desc'), chips: ['Next.js', 'TypeScript', 'Vercel'] },
-    { num: '03', icon: '⚡', title: t('s3Title'), desc: t('s3Desc'), chips: ['D365 CRM', 'Power Apps', 'Azure'] },
+    {
+      num: '01', icon: '📱',
+      title: t('s1Title'), desc: t('s1Desc'),
+      chips: ['Swift', 'Kotlin', 'React Native', 'Flutter'],
+    },
+    {
+      num: '02', icon: '🌐',
+      title: t('s2Title'), desc: t('s2Desc'),
+      chips: ['Next.js', 'TypeScript', 'React', 'Tailwind', 'Vercel'],
+    },
   ]
 
   return (
@@ -21,23 +28,21 @@ export default function Services() {
       </h2>
       <p className="text-[1rem] font-light text-mid max-w-[460px] leading-[1.8] mb-20">{t('lead')}</p>
 
-      <div className="grid grid-cols-2 border border-black/[0.07] rounded-[20px] overflow-hidden">
+      <div className="grid grid-cols-3 border border-black/[0.07] rounded-[20px] overflow-hidden">
         {services.map((s, i) => (
           <div
             key={s.num}
-            className="p-12 border-r border-b border-black/[0.07] group hover:bg-[#f9f8f6] transition-colors relative overflow-hidden"
-            style={{
-              borderRight: i % 2 === 1 ? 'none' : undefined,
-              borderBottom: i >= 2 ? 'none' : undefined,
-            }}
+            className="p-12 border-r border-black/[0.07] group hover:bg-[#f9f8f6] transition-colors relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[rgba(0,87,255,0.04)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+              style={{ background: 'linear-gradient(135deg,rgba(110,93,221,0.05) 0%,rgba(61,201,240,0.04) 100%)' }} />
             <div className="relative z-10">
               <div className="text-[0.68rem] text-mid mb-8 font-light tracking-[0.05em]">{s.num} &mdash;</div>
               <div className="w-12 h-12 rounded-xl bg-white border border-black/[0.07] flex items-center justify-center text-[1.35rem] mb-6 shadow-sm">
                 {s.icon}
               </div>
-              <h3 className="font-serif font-normal text-ink mb-4" style={{ fontSize: '1.6rem', letterSpacing: '-0.8px', lineHeight: 1.15 }}>
+              <h3 className="font-serif font-normal text-ink mb-4"
+                style={{ fontSize: '1.6rem', letterSpacing: '-0.8px', lineHeight: 1.15 }}>
                 {s.title}
               </h3>
               <p className="text-[0.86rem] font-light text-mid leading-[1.8]">{s.desc}</p>
@@ -52,10 +57,12 @@ export default function Services() {
           </div>
         ))}
 
+        {/* CTA card */}
         <div className="p-12 bg-[#f9f8f6] flex flex-col">
           <div className="text-[0.68rem] text-mid mb-8 font-light tracking-[0.05em]">+ &mdash;</div>
           <div className="mt-auto">
-            <p className="font-serif font-normal text-ink mb-6" style={{ fontSize: '1.4rem', letterSpacing: '-0.5px', lineHeight: 1.3 }}>
+            <p className="font-serif font-normal text-ink mb-6"
+              style={{ fontSize: '1.4rem', letterSpacing: '-0.5px', lineHeight: 1.3 }}>
               {t('ctaTitle')}
             </p>
             <a

@@ -1,10 +1,9 @@
 const techs = [
   'Swift', 'Kotlin', 'React Native', 'Next.js', 'TypeScript',
-  'Dynamics 365', 'Power Platform', 'Azure', 'Vercel', 'Flutter',
+  'React', 'Tailwind CSS', 'Expo', 'Vercel', 'Flutter', 'Supabase',
 ]
 
 export default function Marquee() {
-  // Duplicate for seamless loop
   const items = [...techs, ...techs]
 
   return (

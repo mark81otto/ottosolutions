@@ -7,11 +7,9 @@
     "cta": "Get in touch"
   },
   "Hero": {
-    "eyebrow": "Otto Solutions SL — Valencia, Spain",
     "h1Line1": "Apps.",
     "h1Line2": "Websites.",
-    "h1Line3": "Dynamics.",
-    "sub": "Digital products that actually work — for iOS, Android, Web and Microsoft Dynamics 365.",
+    "sub": "Digital products that actually work — native iOS & Android apps and high-performance websites with Next.js.",
     "ctaPrimary": "View portfolio",
     "ctaSecondary": "Start a project",
     "scroll": "Scroll"
@@ -24,13 +22,11 @@
     "tag": "Services",
     "h2Line1": "What we",
     "h2Line2": "build for you.",
-    "lead": "Three core competencies. One team. No outsourcing.",
+    "lead": "Two core competencies. One team. No outsourcing.",
     "s1Title": "iOS & Android Apps",
     "s1Desc": "Native and cross-platform mobile apps from idea to launch. UX/UI, development and App Store rollout — all in one place.",
     "s2Title": "Web Development",
     "s2Desc": "High-performance websites and web apps built with Next.js — optimized for speed, SEO and conversion. With effects that wow.",
-    "s3Title": "Microsoft Dynamics 365",
-    "s3Desc": "Implementation, customization and deep integration of Dynamics 365 — CRM, ERP and Power Platform.",
     "ctaTitle": "Ready for your project?",
     "ctaButton": "Get in touch"
   },
@@ -60,14 +56,15 @@
     "p1Tag": "✓ App Store Ready",
     "p2Title": "Multi-language shop",
     "p2Desc": "E-commerce platform for the Spanish market with full DE · EN · ES support.",
-    "p3Title": "D365 CRM implementation",
-    "p3Desc": "Complete CRM setup with Power Automate workflows and Azure integration."
+    "p3Title": "Fitness Tracking App",
+    "p3Desc": "iOS app with HealthKit integration and Apple Watch support. Personalised training plans, live stats.",
+    "p3Tag": "Health & Fitness"
   },
   "About": {
     "tag": "About us",
     "h2Line1": "We are",
     "h2Line2": "Otto Solutions.",
-    "p1": "As a Spanish SL based in Valencia, we build digital products for clients in Germany, Spain and across Europe — as equals, with real quality.",
+    "p1": "As a Spanish SL based in Valencia, we build apps and websites for clients in Germany, Spain and across Europe — as equals, with real quality.",
     "p2": "We speak fluent German, English and Spanish and deliver projects on time, on budget and with passion.",
     "factForm": "Legal form",
     "factFormVal": "Sociedad Limitada (SL)",
@@ -76,16 +73,16 @@
     "factLang": "Languages",
     "factLangVal": "German · English · Spanish",
     "factFocus": "Focus",
-    "factFocusVal": "Mobile · Web · Dynamics 365",
+    "factFocusVal": "Mobile · Web",
     "cardRole": "Founder & Lead Developer",
-    "cardBio": "We build digital products with focus on clean code, thoughtful design and real business impact. No outsourcing, no copy-paste.",
+    "cardBio": "We build apps and websites with focus on clean code, thoughtful design and real business impact. No outsourcing, no copy-paste.",
     "available": "Valencia, Spain — available for new projects"
   },
   "Contact": {
     "tag": "Contact",
     "h2Line1": "Let's",
     "h2Highlight": "talk.",
-    "lead": "Whether it's a small MVP or a large enterprise project — we listen and turn it into something that actually works.",
+    "lead": "Whether it's a small MVP or a large web app — we listen and turn it into something that actually works.",
     "locLabel": "Location",
     "locVal": "Valencia, Spain",
     "mailLabel": "Email",
@@ -96,9 +93,8 @@
     "servicePlaceholder": "Choose service…",
     "service1": "iOS / Android App",
     "service2": "Web development",
-    "service3": "Microsoft Dynamics 365",
-    "service4": "Full package",
-    "service5": "Other",
+    "service3": "Full package (App + Website)",
+    "service4": "Other",
     "message": "Briefly describe your project…",
     "submit": "Send request"
   },

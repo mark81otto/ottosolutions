@@ -23,8 +23,8 @@ export default function Nav() {
 
   return (
     <nav className="fixed inset-x-0 top-0 z-[900] h-[58px] flex items-center justify-between px-10 glass border-b border-black/[0.07]">
-      <a href="#" className="font-serif italic text-[1.05rem] tracking-[-0.2px] text-ink no-underline">
-        Otto Solutions
+      <a href="#" className="no-underline flex items-center">
+        <img src="/logo.png" alt="Otto Solutions SL" style={{ height: 32, width: 'auto' }} />
       </a>
 
       <div className="flex">

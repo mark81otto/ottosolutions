@@ -33,7 +33,7 @@ export default function GlassStats() {
 
   const stats = [
     { n: 30,  suffix: '+', label: t('label1') },
-    { n: 3,   suffix: '',  label: t('label2') },
+    { n: 2,   suffix: '',  label: t('label2') },
     { n: 100, suffix: '%', label: t('label3') },
     { n: 3,   suffix: '',  label: t('label4') },
   ]
@@ -47,14 +47,14 @@ export default function GlassStats() {
       <div
         className="absolute w-[600px] h-[600px] rounded-full float-blob-1 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle,rgba(0,87,255,0.25),transparent 60%)',
+          background: 'radial-gradient(circle,rgba(61,201,240,0.30),transparent 60%)',
           top: '-100px', right: 0, filter: 'blur(80px)',
         }}
       />
       <div
         className="absolute w-[400px] h-[400px] rounded-full float-blob-2 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle,rgba(100,0,255,0.18),transparent 60%)',
+          background: 'radial-gradient(circle,rgba(110,93,221,0.22),transparent 60%)',
           bottom: '-50px', left: '100px', filter: 'blur(80px)',
         }}
       />

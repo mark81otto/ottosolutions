@@ -1,7 +1,7 @@
 'use client'
 import { useTranslations } from 'next-intl'
 
-const chips = ['Swift', 'Kotlin', 'Next.js', 'React Native', 'D365', 'Azure', 'TypeScript']
+const chips = ['Swift', 'Kotlin', 'Next.js', 'React Native', 'React', 'TypeScript', 'Tailwind']
 
 export default function About() {
   const t = useTranslations('About')
@@ -41,15 +41,15 @@ export default function About() {
           <div
             className="rounded-3xl p-10 relative overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg,rgba(0,87,255,0.05) 0%,rgba(100,0,255,0.03) 100%)',
-              border: '1px solid rgba(0,87,255,0.12)',
+              background: 'linear-gradient(135deg,rgba(61,238,219,0.06) 0%,rgba(110,93,221,0.04) 100%)',
+              border: '1px solid rgba(110,93,221,0.15)',
             }}
           >
             <div
               className="absolute pointer-events-none"
               style={{
                 top: '-60px', right: '-60px', width: '200px', height: '200px', borderRadius: '50%',
-                background: 'radial-gradient(circle,rgba(0,87,255,0.12),transparent 70%)',
+                background: 'radial-gradient(circle,rgba(61,238,219,0.18),transparent 70%)',
               }}
             />
 

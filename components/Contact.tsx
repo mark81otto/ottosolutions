@@ -40,32 +40,31 @@ export default function Contact() {
           <div className="grid grid-cols-2 gap-3">
             <input
               type="text" placeholder={t('firstName')}
-              className="w-full font-sans font-light text-[0.875rem] px-4 py-3.5 rounded-xl outline-none bg-[#f9f8f6] text-ink border border-transparent focus:border-[rgba(0,87,255,0.3)] focus:shadow-[0_0_0_4px_rgba(0,87,255,0.06)] focus:bg-white transition-all placeholder:text-mid"
+              className="w-full font-sans font-light text-[0.875rem] px-4 py-3.5 rounded-xl outline-none bg-[#f9f8f6] text-ink border border-transparent focus:border-[rgba(110,93,221,0.3)] focus:shadow-[0_0_0_4px_rgba(110,93,221,0.06)] focus:bg-white transition-all placeholder:text-mid"
             />
             <input
               type="text" placeholder={t('lastName')}
-              className="w-full font-sans font-light text-[0.875rem] px-4 py-3.5 rounded-xl outline-none bg-[#f9f8f6] text-ink border border-transparent focus:border-[rgba(0,87,255,0.3)] focus:shadow-[0_0_0_4px_rgba(0,87,255,0.06)] focus:bg-white transition-all placeholder:text-mid"
+              className="w-full font-sans font-light text-[0.875rem] px-4 py-3.5 rounded-xl outline-none bg-[#f9f8f6] text-ink border border-transparent focus:border-[rgba(110,93,221,0.3)] focus:shadow-[0_0_0_4px_rgba(110,93,221,0.06)] focus:bg-white transition-all placeholder:text-mid"
             />
           </div>
           <input
             type="email" placeholder={t('email')}
-            className="w-full font-sans font-light text-[0.875rem] px-4 py-3.5 rounded-xl outline-none bg-[#f9f8f6] text-ink border border-transparent focus:border-[rgba(0,87,255,0.3)] focus:shadow-[0_0_0_4px_rgba(0,87,255,0.06)] focus:bg-white transition-all placeholder:text-mid"
+            className="w-full font-sans font-light text-[0.875rem] px-4 py-3.5 rounded-xl outline-none bg-[#f9f8f6] text-ink border border-transparent focus:border-[rgba(110,93,221,0.3)] focus:shadow-[0_0_0_4px_rgba(110,93,221,0.06)] focus:bg-white transition-all placeholder:text-mid"
           />
           <select
             defaultValue=""
-            className="w-full font-sans font-light text-[0.875rem] px-4 py-3.5 rounded-xl outline-none bg-[#f9f8f6] text-mid border border-transparent focus:border-[rgba(0,87,255,0.3)] focus:bg-white transition-all appearance-none cursor-pointer"
+            className="w-full font-sans font-light text-[0.875rem] px-4 py-3.5 rounded-xl outline-none bg-[#f9f8f6] text-mid border border-transparent focus:border-[rgba(110,93,221,0.3)] focus:bg-white transition-all appearance-none cursor-pointer"
           >
             <option value="" disabled>{t('servicePlaceholder')}</option>
             <option value="ios">{t('service1')}</option>
             <option value="web">{t('service2')}</option>
-            <option value="d365">{t('service3')}</option>
-            <option value="all">{t('service4')}</option>
-            <option value="other">{t('service5')}</option>
+            <option value="all">{t('service3')}</option>
+            <option value="other">{t('service4')}</option>
           </select>
           <textarea
             placeholder={t('message')}
             rows={5}
-            className="w-full font-sans font-light text-[0.875rem] px-4 py-3.5 rounded-xl outline-none bg-[#f9f8f6] text-ink border border-transparent focus:border-[rgba(0,87,255,0.3)] focus:shadow-[0_0_0_4px_rgba(0,87,255,0.06)] focus:bg-white transition-all placeholder:text-mid resize-none"
+            className="w-full font-sans font-light text-[0.875rem] px-4 py-3.5 rounded-xl outline-none bg-[#f9f8f6] text-ink border border-transparent focus:border-[rgba(110,93,221,0.3)] focus:shadow-[0_0_0_4px_rgba(110,93,221,0.06)] focus:bg-white transition-all placeholder:text-mid resize-none"
           />
           <button
             type="submit"

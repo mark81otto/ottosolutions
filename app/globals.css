@@ -6,6 +6,11 @@
   :root {
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-sans: 'Inter', system-ui, sans-serif;
+    --cyan: #3DEEDB;
+    --blue-brand: #3DC9F0;
+    --purple: #6E5DDD;
+    --gradient-brand: linear-gradient(135deg, #3DEEDB 0%, #3DC9F0 50%, #6E5DDD 100%);
+    --gradient-brand-soft: linear-gradient(135deg, rgba(61,238,219,0.15) 0%, rgba(61,201,240,0.15) 50%, rgba(110,93,221,0.15) 100%);
   }
 
   html {
