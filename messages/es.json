@@ -9,7 +9,8 @@
   "Hero": {
     "h1Line1": "Apps.",
     "h1Line2": "Webs.",
-    "sub": "Productos digitales que funcionan de verdad — apps nativas para iOS & Android y webs de alto rendimiento con Next.js.",
+    "h1Line3": "IA.",
+    "sub": "Productos digitales que funcionan de verdad — apps nativas para iOS & Android, webs de alto rendimiento e integraciones de IA.",
     "ctaPrimary": "Ver portfolio",
     "ctaSecondary": "Iniciar proyecto",
     "scroll": "Scroll"
@@ -27,6 +28,8 @@
     "s1Desc": "Apps móviles nativas y multiplataforma desde la idea hasta el lanzamiento. UX/UI, desarrollo y publicación en App Store — todo de la mano.",
     "s2Title": "Desarrollo Web",
     "s2Desc": "Webs y web apps de alto rendimiento con Next.js — optimizadas para velocidad, SEO y conversión. Con efectos que enamoran.",
+    "s3Title": "IA y Automatización",
+    "s3Desc": "Chatbots inteligentes, automatización de flujos e integraciones con LLMs. Construimos con ChatGPT, Claude y modelos open-source — integrados directamente en tus productos.",
     "ctaTitle": "¿Listo para tu proyecto?",
     "ctaButton": "Contactar"
   },
@@ -58,7 +61,10 @@
     "p2Desc": "Plataforma e-commerce para el mercado español con soporte completo DE · EN · ES.",
     "p3Title": "App de Fitness Tracking",
     "p3Desc": "App iOS con integración HealthKit y soporte para Apple Watch. Planes de entrenamiento personalizados, estadísticas en vivo.",
-    "p3Tag": "Health & Fitness"
+    "p3Tag": "Health & Fitness",
+    "p4Title": "Chatbot IA para Atención al Cliente",
+    "p4Desc": "Chatbot personalizado entrenado con datos de empresa — integrado en web + WhatsApp. Redujo la carga de soporte un 60%.",
+    "p4Tag": "GPT-4 · LangChain"
   },
   "About": {
     "tag": "Sobre nosotros",
@@ -73,7 +79,7 @@
     "factLang": "Idiomas",
     "factLangVal": "Alemán · Inglés · Español",
     "factFocus": "Especialización",
-    "factFocusVal": "Mobile · Web",
+    "factFocusVal": "Mobile · Web · IA",
     "cardRole": "Founder & Lead Developer",
     "cardBio": "Construimos apps y webs con foco en código limpio, diseño pensado e impacto real en el negocio. Sin outsourcing, sin copia y pega.",
     "available": "Valencia, España — disponibles para nuevos proyectos"
@@ -93,8 +99,9 @@
     "servicePlaceholder": "Elige un servicio…",
     "service1": "App iOS / Android",
     "service2": "Desarrollo Web",
-    "service3": "Paquete completo (App + Web)",
-    "service4": "Otro",
+    "service3": "IA y Automatización",
+    "service4": "Paquete completo (App + Web)",
+    "service5": "Otro",
     "message": "Cuéntanos brevemente tu proyecto…",
     "submit": "Enviar solicitud"
   },

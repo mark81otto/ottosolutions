@@ -1,7 +1,7 @@
 'use client'
 import { useTranslations } from 'next-intl'
 
-const chips = ['Swift', 'Kotlin', 'Next.js', 'React Native', 'React', 'TypeScript', 'Tailwind']
+const chips = ['Swift', 'Kotlin', 'Next.js', 'React Native', 'React', 'TypeScript', 'Tailwind', 'OpenAI', 'Anthropic', 'LangChain']
 
 export default function About() {
   const t = useTranslations('About')

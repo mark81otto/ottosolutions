@@ -89,7 +89,7 @@ function TypewriterBlock({ code, filename, style, fontSize, delay }: Block & { d
           clearInterval(interval)
           timeout = setTimeout(() => { i = 0; setText(''); type() }, 3200)
         }
-      }, 38)
+      }, 50)
     }
 
     timeout = setTimeout(type, delay)
@@ -98,18 +98,18 @@ function TypewriterBlock({ code, filename, style, fontSize, delay }: Block & { d
 
   return (
     <pre
-      className="absolute font-mono pointer-events-none hidden md:block"
+      className="absolute font-mono pointer-events-none"
       style={{
         ...style,
-        fontSize,
-        maxWidth: 300,
+        fontSize: 'clamp(0.55rem, 1.5vw, 0.76rem)',
+        maxWidth: 'clamp(160px, 25vw, 300px)',
         background: 'rgba(13, 17, 23, 0.9)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
         border: '1px solid rgba(110, 93, 221, 0.22)',
         borderRadius: 10,
-        padding: '10px 16px 12px',
-        paddingTop: 34,
+        padding: 'clamp(8px, 1.5vw, 10px) clamp(10px, 2vw, 16px) clamp(8px, 1.5vw, 12px)',
+        paddingTop: 'clamp(28px, 4vw, 34px)',
         color: '#abb2bf',
         whiteSpace: 'pre-wrap',
         boxShadow:

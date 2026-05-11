@@ -1,6 +1,7 @@
 const techs = [
   'Swift', 'Kotlin', 'React Native', 'Next.js', 'TypeScript',
   'React', 'Tailwind CSS', 'Expo', 'Vercel', 'Flutter', 'Supabase',
+  'OpenAI', 'Anthropic Claude', 'LangChain', 'Vector DBs',
 ]
 
 export default function Marquee() {

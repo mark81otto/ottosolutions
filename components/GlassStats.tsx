@@ -33,7 +33,7 @@ export default function GlassStats() {
 
   const stats = [
     { n: 30,  suffix: '+', label: t('label1') },
-    { n: 2,   suffix: '',  label: t('label2') },
+    { n: 3,   suffix: '',  label: t('label2') },
     { n: 100, suffix: '%', label: t('label3') },
     { n: 3,   suffix: '',  label: t('label4') },
   ]

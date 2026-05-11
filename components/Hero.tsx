@@ -34,7 +34,14 @@ export default function Hero() {
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
               fontStyle: 'italic',
-            }}>{t('h1Line2')}</em>
+            }}>{t('h1Line2')}</em><br />
+            <em style={{
+              background: 'linear-gradient(135deg, #6E5DDD 0%, #3DEEDB 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontStyle: 'italic',
+            }}>{t('h1Line3')}</em>
           </h1>
 
           <p

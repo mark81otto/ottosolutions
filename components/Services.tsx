@@ -15,6 +15,11 @@ export default function Services() {
       title: t('s2Title'), desc: t('s2Desc'),
       chips: ['Next.js', 'TypeScript', 'React', 'Tailwind', 'Vercel'],
     },
+    {
+      num: '03', icon: '🤖',
+      title: t('s3Title'), desc: t('s3Desc'),
+      chips: ['OpenAI', 'Anthropic', 'LangChain', 'Vector DBs'],
+    },
   ]
 
   return (
@@ -28,11 +33,11 @@ export default function Services() {
       </h2>
       <p className="text-[1rem] font-light text-mid max-w-[460px] leading-[1.8] mb-12 md:mb-20">{t('lead')}</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 border border-black/[0.07] rounded-[20px] overflow-hidden">
-        {services.map((s, i) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 border border-black/[0.07] rounded-[20px] overflow-hidden">
+        {services.map((s) => (
           <div
             key={s.num}
-            className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-black/[0.07] group hover:bg-[#f9f8f6] transition-colors relative overflow-hidden"
+            className="p-8 md:p-12 border-r border-b border-black/[0.07] group hover:bg-[#f9f8f6] transition-colors relative overflow-hidden"
           >
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
               style={{ background: 'linear-gradient(135deg,rgba(110,93,221,0.05) 0%,rgba(61,201,240,0.04) 100%)' }} />
@@ -58,7 +63,7 @@ export default function Services() {
         ))}
 
         {/* CTA card */}
-        <div className="p-8 md:p-12 bg-[#f9f8f6] flex flex-col">
+        <div className="p-8 md:p-12 bg-[#f9f8f6] flex flex-col border-r border-b border-black/[0.07]">
           <div className="text-[0.68rem] text-mid mb-8 font-light tracking-[0.05em]">+ &mdash;</div>
           <div className="mt-auto">
             <p className="font-serif font-normal text-ink mb-6"
@@ -67,7 +72,7 @@ export default function Services() {
             </p>
             <a
               href="#contact"
-              className="inline-block text-[0.875rem] font-medium px-7 py-3.5 bg-ink text-white rounded-full no-underline hover:opacity-85 transition-opacity min-h-[44px] flex items-center"
+              className="inline-flex items-center text-[0.875rem] font-medium px-7 py-3.5 bg-ink text-white rounded-full no-underline hover:opacity-85 transition-opacity min-h-[44px]"
             >
               {t('ctaButton')}
             </a>

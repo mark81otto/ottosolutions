@@ -58,8 +58,9 @@ export default function Contact() {
             <option value="" disabled>{t('servicePlaceholder')}</option>
             <option value="ios">{t('service1')}</option>
             <option value="web">{t('service2')}</option>
-            <option value="all">{t('service3')}</option>
-            <option value="other">{t('service4')}</option>
+            <option value="ai">{t('service3')}</option>
+            <option value="all">{t('service4')}</option>
+            <option value="other">{t('service5')}</option>
           </select>
           <textarea
             placeholder={t('message')}

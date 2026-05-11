@@ -115,6 +115,15 @@ export default function Portfolio() {
       desc: t('p3Desc'),
       tag: t('p3Tag'),
     },
+    {
+      large: false,
+      bg: 'linear-gradient(135deg,#f3e8ff,#faf5ff)',
+      accent: '#6E5DDD',
+      cat: 'AI · Automation',
+      title: t('p4Title'),
+      desc: t('p4Desc'),
+      tag: t('p4Tag'),
+    },
   ]
 
   return (

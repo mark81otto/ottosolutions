@@ -9,7 +9,8 @@
   "Hero": {
     "h1Line1": "Apps.",
     "h1Line2": "Websites.",
-    "sub": "Digitale Produkte die wirklich funktionieren — native iOS & Android Apps und performante Websites mit Next.js.",
+    "h1Line3": "AI.",
+    "sub": "Digitale Produkte die wirklich funktionieren — native iOS & Android Apps, performante Websites und AI-Integrationen.",
     "ctaPrimary": "Portfolio ansehen",
     "ctaSecondary": "Projekt anfragen",
     "scroll": "Scroll"
@@ -27,6 +28,8 @@
     "s1Desc": "Native und cross-platform Mobile-Apps von der Idee bis zum Launch. UX/UI, Development und App Store Rollout aus einer Hand.",
     "s2Title": "Website-Entwicklung",
     "s2Desc": "Performante Websites und Web-Apps mit Next.js — optimiert für Speed, SEO und Konversion. Mit Effekten die begeistern.",
+    "s3Title": "AI & Automation",
+    "s3Desc": "Intelligente Chatbots, Workflow-Automation und LLM-Integrationen. Wir bauen mit ChatGPT, Claude und Open-Source Modellen — direkt in deine Produkte integriert.",
     "ctaTitle": "Bereit für dein Projekt?",
     "ctaButton": "Jetzt anfragen"
   },
@@ -58,7 +61,10 @@
     "p2Desc": "E-Commerce für den spanischen Markt mit DE · EN · ES Support.",
     "p3Title": "Fitness Tracking App",
     "p3Desc": "iOS App mit HealthKit Integration und Apple Watch Support. Personalisierte Trainingspläne, Live-Stats.",
-    "p3Tag": "Health & Fitness"
+    "p3Tag": "Health & Fitness",
+    "p4Title": "AI Chatbot für Customer Support",
+    "p4Desc": "Custom Chatbot trainiert auf Unternehmensdaten — integriert in Web + WhatsApp. Reduzierte Support-Last um 60%.",
+    "p4Tag": "GPT-4 · LangChain"
   },
   "About": {
     "tag": "Über uns",
@@ -73,7 +79,7 @@
     "factLang": "Sprachen",
     "factLangVal": "Deutsch · Englisch · Spanisch",
     "factFocus": "Fokus",
-    "factFocusVal": "Mobile · Web",
+    "factFocusVal": "Mobile · Web · AI",
     "cardRole": "Founder & Lead Developer",
     "cardBio": "Wir bauen Apps und Websites mit Fokus auf sauberen Code, durchdachtes Design und messbaren Business-Impact. Kein Outsourcing, kein Copy-paste.",
     "available": "Valencia, España — verfügbar für neue Projekte"
@@ -93,8 +99,9 @@
     "servicePlaceholder": "Leistung wählen…",
     "service1": "iOS / Android App",
     "service2": "Website-Entwicklung",
-    "service3": "Komplettpaket (App + Website)",
-    "service4": "Sonstiges",
+    "service3": "AI & Automation",
+    "service4": "Komplettpaket (App + Website)",
+    "service5": "Sonstiges",
     "message": "Beschreib dein Projekt kurz…",
     "submit": "Anfrage absenden"
   },
