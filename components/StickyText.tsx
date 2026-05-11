@@ -33,8 +33,8 @@ export default function StickyText() {
           ref={txtRef}
           className="font-serif font-normal text-ink whitespace-nowrap px-10 will-change-transform transition-none relative z-10"
           style={{
-            fontSize: 'clamp(4rem, 11vw, 10rem)',
-            letterSpacing: '-5px',
+            fontSize: 'clamp(2.5rem, 12vw, 10rem)',
+            letterSpacing: '-3px',
             lineHeight: 0.9,
             textShadow: '0 0 60px rgba(255,255,255,0.95), 0 0 28px rgba(255,255,255,0.85)',
           }}

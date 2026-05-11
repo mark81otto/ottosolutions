@@ -14,13 +14,13 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-40 px-10 bg-[#f9f8f6]">
-      <div className="grid grid-cols-2 gap-32 items-start">
+    <section id="about" className="py-20 md:py-40 px-5 md:px-10 bg-[#f9f8f6]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-start">
         <div>
           <span className="block text-[0.72rem] font-medium text-mid tracking-[0.08em] uppercase mb-5">{t('tag')}</span>
           <h2
             className="font-serif font-normal text-ink mb-8"
-            style={{ fontSize: 'clamp(2.8rem,6vw,5.5rem)', letterSpacing: '-2.5px', lineHeight: 1.02 }}
+            style={{ fontSize: 'clamp(2rem, 7vw, 5.5rem)', letterSpacing: '-2.5px', lineHeight: 1.02 }}
           >
             {t('h2Line1')}<br />{t('h2Line2')}
           </h2>
@@ -39,7 +39,7 @@ export default function About() {
 
         <div>
           <div
-            className="rounded-3xl p-10 relative overflow-hidden"
+            className="rounded-3xl p-8 md:p-10 relative overflow-hidden"
             style={{
               background: 'linear-gradient(135deg,rgba(61,238,219,0.06) 0%,rgba(110,93,221,0.04) 100%)',
               border: '1px solid rgba(110,93,221,0.15)',

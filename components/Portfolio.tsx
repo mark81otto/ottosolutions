@@ -6,7 +6,7 @@ function TiltCard({ p, large }: { p: any; large: boolean }) {
   const ref = useRef<HTMLDivElement>(null)
 
   const onMove = (e: MouseEvent) => {
-    if (!ref.current) return
+    if (!ref.current || !window.matchMedia('(hover: hover)').matches) return
     const r = ref.current.getBoundingClientRect()
     const x = (e.clientX - r.left) / r.width - 0.5
     const y = (e.clientY - r.top) / r.height - 0.5
@@ -32,12 +32,12 @@ function TiltCard({ p, large }: { p: any; large: boolean }) {
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className={`bg-white border border-black/[0.07] rounded-[20px] overflow-hidden transition-[box-shadow] duration-300 cursor-default ${large ? 'col-span-2' : ''}`}
+      className={`bg-white border border-black/[0.07] rounded-[20px] overflow-hidden transition-[box-shadow] duration-300 cursor-default col-span-1 ${large ? 'md:col-span-2' : ''}`}
       style={{ transitionProperty: 'box-shadow', transformStyle: 'preserve-3d' }}
     >
       <div
         className="relative overflow-hidden flex items-center justify-center"
-        style={{ height: large ? '320px' : '220px', background: p.bg }}
+        style={{ height: large ? '260px' : '200px', background: p.bg }}
       >
         <div
           className="absolute inset-0"
@@ -47,7 +47,7 @@ function TiltCard({ p, large }: { p: any; large: boolean }) {
           }}
         />
         <div
-          className="relative z-10 rounded-[14px] p-5 w-[220px]"
+          className="relative z-10 rounded-[14px] p-5 w-[200px] sm:w-[220px]"
           style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.8)', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}
         >
           <div className="h-[3px] rounded-full mb-2" style={{ background: p.accent, width: '80%', opacity: 0.8 }} />
@@ -68,7 +68,7 @@ function TiltCard({ p, large }: { p: any; large: boolean }) {
         </div>
       </div>
 
-      <div className="p-8">
+      <div className="p-6 md:p-8">
         <div className="text-[0.68rem] mb-2 tracking-[0.06em] uppercase" style={{ color: p.accent }}>
           {p.cat}
         </div>
@@ -118,23 +118,23 @@ export default function Portfolio() {
   ]
 
   return (
-    <section id="portfolio" className="py-40 px-10 bg-white">
-      <div className="flex justify-between items-end mb-16">
+    <section id="portfolio" className="py-20 md:py-40 px-5 md:px-10 bg-white">
+      <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-end mb-12 md:mb-16">
         <div>
           <span className="block text-[0.72rem] font-medium text-mid tracking-[0.08em] uppercase mb-5">{t('tag')}</span>
           <h2
             className="font-serif font-normal text-ink"
-            style={{ fontSize: 'clamp(2.8rem,6vw,5.5rem)', letterSpacing: '-2.5px', lineHeight: 1.02 }}
+            style={{ fontSize: 'clamp(2rem, 7vw, 5.5rem)', letterSpacing: '-2.5px', lineHeight: 1.02 }}
           >
             {t('h2Line1')}<br /><em className="text-mid">{t('h2Highlight')}</em>
           </h2>
         </div>
-        <p className="text-[1rem] font-light text-mid max-w-[300px] text-right leading-[1.8]">
+        <p className="text-[1rem] font-light text-mid max-w-[300px] md:text-right leading-[1.8]">
           {t('lead')}
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((p) => (
           <TiltCard key={p.title} p={p} large={p.large} />
         ))}

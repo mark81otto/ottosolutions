@@ -18,21 +18,21 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="py-40 px-10 bg-white">
+    <section id="services" className="py-20 md:py-40 px-5 md:px-10 bg-white">
       <span className="block text-[0.72rem] font-medium text-mid tracking-[0.08em] uppercase mb-5">{t('tag')}</span>
       <h2
         className="font-serif font-normal text-ink mb-6"
-        style={{ fontSize: 'clamp(2.8rem,6vw,5.5rem)', letterSpacing: '-2.5px', lineHeight: 1.02 }}
+        style={{ fontSize: 'clamp(2rem, 7vw, 5.5rem)', letterSpacing: '-2.5px', lineHeight: 1.02 }}
       >
         {t('h2Line1')}<br />{t('h2Line2')}
       </h2>
-      <p className="text-[1rem] font-light text-mid max-w-[460px] leading-[1.8] mb-20">{t('lead')}</p>
+      <p className="text-[1rem] font-light text-mid max-w-[460px] leading-[1.8] mb-12 md:mb-20">{t('lead')}</p>
 
-      <div className="grid grid-cols-3 border border-black/[0.07] rounded-[20px] overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-3 border border-black/[0.07] rounded-[20px] overflow-hidden">
         {services.map((s, i) => (
           <div
             key={s.num}
-            className="p-12 border-r border-black/[0.07] group hover:bg-[#f9f8f6] transition-colors relative overflow-hidden"
+            className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-black/[0.07] group hover:bg-[#f9f8f6] transition-colors relative overflow-hidden"
           >
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
               style={{ background: 'linear-gradient(135deg,rgba(110,93,221,0.05) 0%,rgba(61,201,240,0.04) 100%)' }} />
@@ -58,7 +58,7 @@ export default function Services() {
         ))}
 
         {/* CTA card */}
-        <div className="p-12 bg-[#f9f8f6] flex flex-col">
+        <div className="p-8 md:p-12 bg-[#f9f8f6] flex flex-col">
           <div className="text-[0.68rem] text-mid mb-8 font-light tracking-[0.05em]">+ &mdash;</div>
           <div className="mt-auto">
             <p className="font-serif font-normal text-ink mb-6"
@@ -67,7 +67,7 @@ export default function Services() {
             </p>
             <a
               href="#contact"
-              className="inline-block text-[0.875rem] font-medium px-7 py-3.5 bg-ink text-white rounded-full no-underline hover:opacity-85 transition-opacity"
+              className="inline-block text-[0.875rem] font-medium px-7 py-3.5 bg-ink text-white rounded-full no-underline hover:opacity-85 transition-opacity min-h-[44px] flex items-center"
             >
               {t('ctaButton')}
             </a>

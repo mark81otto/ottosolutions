@@ -39,7 +39,7 @@ export default function GlassStats() {
   ]
 
   return (
-    <div className="relative overflow-hidden py-32 px-10 flex items-center min-h-[60vh]">
+    <div className="relative overflow-hidden py-20 md:py-32 px-5 md:px-10 flex items-center min-h-[60vh]">
       <div
         className="absolute inset-0"
         style={{ background: 'linear-gradient(160deg,#0a0a0f 0%,#111122 50%,#0a0a0f 100%)' }}
@@ -62,22 +62,22 @@ export default function GlassStats() {
       <div className="relative z-10 w-full">
         <span className="block text-[0.72rem] tracking-[0.08em] uppercase text-white/30 mb-5">{t('tag')}</span>
         <h2
-          className="font-serif font-normal text-white mb-20"
-          style={{ fontSize: 'clamp(2.5rem,5vw,4.5rem)', letterSpacing: '-2px', lineHeight: 1.02 }}
+          className="font-serif font-normal text-white mb-10 md:mb-20"
+          style={{ fontSize: 'clamp(2rem, 6vw, 4.5rem)', letterSpacing: '-2px', lineHeight: 1.02 }}
         >
           {t('h2Line1')} <em className="text-white/40">{t('h2Highlight')}</em>
         </h2>
 
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {stats.map((s, i) => (
-            <div key={i} className="glass-dark rounded-2xl p-10 hover:-translate-y-1 transition-transform">
+            <div key={i} className="glass-dark rounded-2xl p-6 md:p-10 hover:-translate-y-1 transition-transform">
               <div
                 className="font-serif font-normal text-white leading-none mb-3"
-                style={{ fontSize: 'clamp(3rem,5vw,4.5rem)', letterSpacing: '-3px' }}
+                style={{ fontSize: 'clamp(2.2rem, 6vw, 4.5rem)', letterSpacing: '-3px' }}
               >
                 <Counter target={s.n} suffix={s.suffix} />
               </div>
-              <div className="text-[0.8rem] font-light text-white/35 leading-relaxed whitespace-pre-line">
+              <div className="text-[0.78rem] font-light text-white/35 leading-relaxed whitespace-pre-line">
                 {s.label}
               </div>
             </div>
