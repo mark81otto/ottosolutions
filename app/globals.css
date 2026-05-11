@@ -99,6 +99,17 @@
     50%      { opacity: 0.3; }
   }
 
+  /* Code cursor */
+  .cursor-blink {
+    color: #3DEEDB;
+    font-weight: bold;
+    animation: cursorBlink 1s step-end infinite;
+  }
+  @keyframes cursorBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
   /* Scroll fill line */
   .scroll-line-fill {
     position: absolute;

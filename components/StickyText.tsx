@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
+import AnimatedCode from './AnimatedCode'
 
 export default function StickyText() {
   const t = useTranslations('StickyText')
@@ -20,13 +21,25 @@ export default function StickyText() {
 
   return (
     <div ref={secRef} style={{ height: '250vh' }}>
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+      <div
+        className="sticky top-0 h-screen flex items-center overflow-hidden relative bg-white"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%)',
+        }}
+      >
+        <AnimatedCode />
         <div
           ref={txtRef}
-          className="font-serif font-normal text-ink whitespace-nowrap px-10 will-change-transform transition-none"
-          style={{ fontSize: 'clamp(5rem, 14vw, 13rem)', letterSpacing: '-5px', lineHeight: 0.9 }}
+          className="font-serif font-normal text-ink whitespace-nowrap px-10 will-change-transform transition-none relative z-10"
+          style={{
+            fontSize: 'clamp(4rem, 11vw, 10rem)',
+            letterSpacing: '-5px',
+            lineHeight: 0.9,
+            textShadow: '0 0 60px rgba(255,255,255,0.95), 0 0 28px rgba(255,255,255,0.85)',
+          }}
         >
-          {t('main')}&nbsp;<em className="text-[#0057ff]">{t('highlight')}</em>
+          {t('main')}&nbsp;<em className="text-[#6E5DDD]">{t('highlight')}</em>
         </div>
       </div>
     </div>
