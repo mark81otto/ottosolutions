@@ -1,0 +1,91 @@
+'use client'
+import { useEffect, useRef, useState } from 'react'
+
+const stats = [
+  { n: 30, suffix: '+', label: 'Abgeschlossene\nProjekte' },
+  { n: 3,  suffix: '',  label: 'Kernkompetenzen' },
+  { n: 100, suffix: '%', label: 'Kundenzufriedenheit' },
+  { n: 3,  suffix: '',  label: 'Sprachen\nDE · EN · ES' },
+]
+
+function Counter({ target, suffix }: { target: number; suffix: string }) {
+  const [val, setVal] = useState(0)
+  const ref = useRef<HTMLSpanElement>(null)
+  const started = useRef(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting || started.current) return
+      started.current = true
+      const step = Math.max(1, Math.ceil(target / 36))
+      let cur = 0
+      const id = setInterval(() => {
+        cur = Math.min(cur + step, target)
+        setVal(cur)
+        if (cur >= target) clearInterval(id)
+      }, 38)
+    }, { threshold: 0.6 })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [target])
+
+  return <span ref={ref}>{val}{suffix}</span>
+}
+
+export default function GlassStats() {
+  return (
+    <div className="relative overflow-hidden py-32 px-10 flex items-center min-h-[60vh]">
+      {/* Dark bg */}
+      <div
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(160deg,#0a0a0f 0%,#111122 50%,#0a0a0f 100%)' }}
+      />
+      {/* Blobs */}
+      <div
+        className="absolute w-[600px] h-[600px] rounded-full float-blob-1 pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle,rgba(0,87,255,0.25),transparent 60%)',
+          top: '-100px', right: 0, filter: 'blur(80px)',
+        }}
+      />
+      <div
+        className="absolute w-[400px] h-[400px] rounded-full float-blob-2 pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle,rgba(100,0,255,0.18),transparent 60%)',
+          bottom: '-50px', left: '100px', filter: 'blur(80px)',
+        }}
+      />
+
+      <div className="relative z-10 w-full">
+        <span className="block text-[0.72rem] tracking-[0.08em] uppercase text-white/30 mb-5">In Zahlen</span>
+        <h2
+          className="font-serif font-normal text-white mb-20"
+          style={{ fontSize: 'clamp(2.5rem,5vw,4.5rem)', letterSpacing: '-2px', lineHeight: 1.02 }}
+        >
+          Ergebnisse die <em className="text-white/40">sprechen.</em>
+        </h2>
+
+        <div className="grid grid-cols-4 gap-6">
+          {stats.map((s) => (
+            <div
+              key={s.label}
+              className="glass-dark rounded-2xl p-10 hover:-translate-y-1 transition-transform"
+            >
+              <div
+                className="font-serif font-normal text-white leading-none mb-3"
+                style={{ fontSize: 'clamp(3rem,5vw,4.5rem)', letterSpacing: '-3px' }}
+              >
+                <Counter target={s.n} suffix={s.suffix} />
+              </div>
+              <div className="text-[0.8rem] font-light text-white/35 leading-relaxed whitespace-pre-line">
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
