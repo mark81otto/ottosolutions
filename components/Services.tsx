@@ -3,58 +3,80 @@ import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { useReveal } from '@/hooks/useReveal'
 
-// ── Phone Mockup (Card 1 — Apps) ─────────────────────────────
+// ── App Card (inside Phone) ───────────────────────────────────
+function AppCard({ icon, name, tags, gradient, stats }: {
+  icon: string; name: string; tags: string; gradient: string; stats: string
+}) {
+  return (
+    <div className="app-card-realistic">
+      <div className="app-card-icon" style={{ background: gradient }}>{icon}</div>
+      <div className="app-card-info">
+        <div className="app-card-name">{name}</div>
+        <div className="app-card-tags">{tags}</div>
+      </div>
+      <div className="app-card-stats">{stats}</div>
+    </div>
+  )
+}
+
+const APP_CARDS = [
+  { icon: '📱', name: 'iOS App',         tags: 'Swift · UIKit',      gradient: 'linear-gradient(135deg,#3DEEDB,#3DC9F0)', stats: '4.8 ★' },
+  { icon: '🤖', name: 'Android App',     tags: 'Kotlin · Jetpack',   gradient: 'linear-gradient(135deg,#6E5DDD,#3DC9F0)', stats: '4.9 ★' },
+  { icon: '⚛️', name: 'React Native',    tags: 'Cross-platform',     gradient: 'linear-gradient(135deg,#3DEEDB,#6E5DDD)', stats: '4.7 ★' },
+  { icon: '🛍️', name: 'E-Commerce',     tags: 'iOS · Android',      gradient: 'linear-gradient(135deg,#3DC9F0,#6E5DDD)', stats: '4.8 ★' },
+  { icon: '💪', name: 'Fitness Tracker', tags: 'HealthKit · Watch',  gradient: 'linear-gradient(135deg,#3DEEDB,#3DC9F0)', stats: '4.9 ★' },
+  { icon: '🏦', name: 'FinTech App',     tags: 'iOS · Android',      gradient: 'linear-gradient(135deg,#6E5DDD,#3DEEDB)', stats: '4.8 ★' },
+]
+
+// ── iPhone 15 Pro Mockup ──────────────────────────────────────
 function PhoneMockup() {
-  const icons = [
-    { bg: '#FF6B6B', em: '📍' }, { bg: '#4ECDC4', em: '🗓' },
-    { bg: '#45B7D1', em: '💬' }, { bg: '#96CEB4', em: '📷' },
-    { bg: '#FFEAA7', em: '🎵' }, { bg: '#DDA0DD', em: '💰' },
-    { bg: '#98D8C8', em: '🏃' }, { bg: '#F7DC6F', em: '⚙️' },
-    { bg: '#BB8FCE', em: '📊' }, { bg: '#76D7C4', em: '🛒' },
-    { bg: '#F1948A', em: '❤️' }, { bg: '#85C1E9', em: '🌤' },
-    { bg: '#FF6B6B', em: '🏋️' }, { bg: '#4ECDC4', em: '🎯' },
-    { bg: '#45B7D1', em: '🚀' }, { bg: '#96CEB4', em: '💡' },
-    { bg: '#FFEAA7', em: '🗺' }, { bg: '#DDA0DD', em: '🔔' },
-    { bg: '#98D8C8', em: '📱' }, { bg: '#F7DC6F', em: '🎮' },
-  ]
-  const rows: typeof icons[] = []
-  for (let i = 0; i < icons.length; i += 4) rows.push(icons.slice(i, i + 4))
-  const doubled = [...rows, ...rows]
+  const doubled = [...APP_CARDS, ...APP_CARDS]
 
   return (
-    <div className="relative mx-auto select-none" style={{ width: 128, height: 252 }}>
-      <div
-        className="absolute inset-0 rounded-[28px] overflow-hidden"
-        style={{
-          background: '#1a1a2e',
-          border: '2.5px solid rgba(255,255,255,0.12)',
-          boxShadow: '0 0 52px rgba(110,93,221,0.4), inset 0 1px 0 rgba(255,255,255,0.07)',
-        }}
-      >
-        {/* Dynamic island */}
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-[14px] bg-black rounded-full z-10" />
+    <div className="iphone-scale-wrapper">
+      <div className="iphone-wrapper">
+        <div className="iphone-shadow" />
+        <div className="iphone-frame">
+          <div className="iphone-button button-action" />
+          <div className="iphone-button button-volume-up" />
+          <div className="iphone-button button-volume-down" />
+          <div className="iphone-button button-power" />
 
-        {/* Scrolling app grid */}
-        <div className="absolute inset-0 pt-10 pb-2 px-2 overflow-hidden">
-          <div style={{ animation: 'scrollApps 10s linear infinite' }}>
-            {doubled.map((row, ri) => (
-              <div key={ri} className="flex gap-1.5 justify-center mb-2">
-                {row.map(({ bg, em }) => (
-                  <div
-                    key={em + ri}
-                    className="w-6 h-6 rounded-md flex items-center justify-center text-[0.65rem]"
-                    style={{ background: bg }}
-                  >
-                    {em}
-                  </div>
+          <div className="iphone-screen">
+            {/* Status bar */}
+            <div className="status-bar">
+              <span className="sb-time">9:41</span>
+              <div className="sb-icons">
+                <span>●●●</span>
+                <span>▲</span>
+                <span>100%</span>
+              </div>
+            </div>
+
+            {/* Dynamic Island */}
+            <div className="dynamic-island" />
+
+            {/* App list */}
+            <div className="app-content">
+              <div className="app-header">
+                <div className="app-greeting">Good morning, Mark</div>
+                <div className="app-title">Your Apps</div>
+              </div>
+              <div className="app-search">
+                <span>🔍</span>
+                <span>Search…</span>
+              </div>
+              <div className="app-grid-scroll">
+                {doubled.map((card, i) => (
+                  <AppCard key={i} {...card} />
                 ))}
               </div>
-            ))}
+            </div>
+
+            {/* Home indicator */}
+            <div className="home-indicator" />
           </div>
         </div>
-
-        {/* Home bar */}
-        <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-14 h-[3px] bg-white/30 rounded-full" />
       </div>
     </div>
   )
@@ -82,7 +104,6 @@ function ChatMockup() {
 
   return (
     <div className="w-full max-w-[240px] mx-auto flex flex-col gap-2">
-      {/* User message */}
       <div className="flex justify-end">
         <div
           className="text-white text-[0.68rem] leading-[1.55] px-3 py-2 rounded-[14px] rounded-br-[4px] max-w-[80%]"
@@ -92,7 +113,6 @@ function ChatMockup() {
         </div>
       </div>
 
-      {/* AI bubble */}
       {aiVisible && (
         <div className="flex justify-start" style={{ animation: 'fadeInUp 0.3s ease both' }}>
           <div
@@ -114,7 +134,6 @@ function ChatMockup() {
         </div>
       )}
 
-      {/* Follow-up */}
       {userReply && (
         <div className="flex justify-end" style={{ animation: 'fadeInUp 0.3s ease both' }}>
           <div
@@ -145,7 +164,6 @@ function BrowserMockup({ visible }: { visible: boolean }) {
       className="w-full max-w-[220px] mx-auto rounded-xl overflow-hidden"
       style={{ background: '#0d1020', border: '1px solid rgba(255,255,255,0.08)' }}
     >
-      {/* Browser chrome */}
       <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/[0.07]">
         <div className="w-[7px] h-[7px] rounded-full bg-[#FF5F57]" />
         <div className="w-[7px] h-[7px] rounded-full bg-[#FFBD2E]" />
@@ -154,8 +172,6 @@ function BrowserMockup({ visible }: { visible: boolean }) {
           <span className="text-[0.45rem] text-white/25">ottosolutions.es/analytics</span>
         </div>
       </div>
-
-      {/* Chart */}
       <div className="p-3">
         <div className="text-[0.55rem] text-white/35 mb-2 font-light">Weekly Conversions</div>
         <div className="flex items-end gap-1 h-16">
@@ -224,7 +240,7 @@ export default function Services() {
       {/* Bento Grid */}
       <div className="grid gap-3 grid-cols-1 md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-2 xl:min-h-[480px]">
 
-        {/* Card 1 — Apps (left, 2×2) */}
+        {/* Card 1 — Apps (left, 2×2) — side-by-side layout */}
         <div
           className="bento-card bento-card-apps relative rounded-2xl overflow-hidden md:col-span-2 xl:col-span-2 xl:row-span-2"
           style={{
@@ -234,26 +250,29 @@ export default function Services() {
         >
           <div
             className="absolute top-0 right-0 w-72 h-72 rounded-full pointer-events-none"
-            style={{ background: 'radial-gradient(circle at 70% 25%, rgba(110,93,221,0.2) 0%, transparent 65%)' }}
+            style={{ background: 'radial-gradient(circle at 70% 25%, rgba(110,93,221,0.18) 0%, transparent 65%)' }}
           />
-          <div className="relative z-10 flex flex-col h-full p-8 md:p-10">
-            <span className="text-[0.6rem] text-white/30 font-light tracking-[0.08em]">01 —</span>
-            <div className="flex-1 flex items-center justify-center py-10 md:py-12">
-              <PhoneMockup />
-            </div>
-            <div>
+          <div className="bento-card-large relative z-10 p-8 md:p-10 h-full">
+            {/* Left: text */}
+            <div className="flex flex-col gap-5 justify-center">
+              <span className="text-[0.6rem] text-white/30 font-light tracking-[0.08em]">01 — Mobile</span>
               <h3
-                className="font-serif font-normal text-white mb-3"
-                style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', letterSpacing: '-0.8px', lineHeight: 1.15 }}
+                className="font-serif font-normal text-white"
+                style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', letterSpacing: '-0.8px', lineHeight: 1.15 }}
               >
                 {t('s1Title')}
               </h3>
               <p className="text-[0.83rem] font-light leading-[1.75]" style={{ color: 'rgba(255,255,255,0.45)' }}>
                 {t('s1Desc')}
               </p>
-              <div className="flex flex-wrap gap-1.5 mt-4">
-                {['Swift', 'Kotlin', 'React Native'].map((c) => <Chip key={c} label={c} />)}
+              <div className="flex flex-wrap gap-1.5">
+                {['Swift', 'Kotlin', 'React Native', 'Flutter'].map((c) => <Chip key={c} label={c} />)}
               </div>
+            </div>
+
+            {/* Right: iPhone */}
+            <div className="flex items-center justify-center">
+              <PhoneMockup />
             </div>
           </div>
         </div>
@@ -364,9 +383,7 @@ export default function Services() {
         .bento-card {
           transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease;
         }
-        .bento-card:hover {
-          transform: translateY(-4px);
-        }
+        .bento-card:hover { transform: translateY(-4px); }
         .bento-card-apps:hover { box-shadow: 0 0 52px rgba(110,93,221,0.28); }
         .bento-card-ai:hover   { box-shadow: 0 0 52px rgba(61,238,219,0.2); }
         .bento-card-web:hover  { box-shadow: 0 0 52px rgba(61,201,240,0.2); }
