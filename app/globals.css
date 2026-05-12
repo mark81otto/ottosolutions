@@ -378,3 +378,41 @@
   .bento-card-large { grid-template-columns: 1fr; }
   .iphone-scale-wrapper { transform: scale(0.82); transform-origin: top center; }
 }
+
+/* ══════════════════════════════════════════════
+   PORTFOLIO BENTO GRID
+   ══════════════════════════════════════════════ */
+
+.portfolio-bento {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .portfolio-bento { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .portfolio-bento .proj-1 { grid-column: span 2; }
+  .portfolio-bento .proj-4 { grid-column: span 2; }
+}
+@media (min-width: 1280px) {
+  .portfolio-bento { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .portfolio-bento .proj-1 { grid-column: span 2; grid-row: span 2; }
+  .portfolio-bento .proj-2 { grid-column: span 2; }
+  .portfolio-bento .proj-3 { grid-column: span 2; }
+  .portfolio-bento .proj-4 { grid-column: span 4; }
+}
+
+@keyframes subtleFloat {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.03); }
+}
+@keyframes pinFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
+}
+@keyframes pinPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.2); opacity: 0.7; }
+}
+@keyframes routeDash {
+  to { stroke-dashoffset: -16; }
+}
