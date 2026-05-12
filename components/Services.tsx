@@ -1,84 +1,376 @@
 'use client'
 import { useTranslations } from 'next-intl'
+import { useEffect, useState } from 'react'
+import { useReveal } from '@/hooks/useReveal'
 
-export default function Services() {
-  const t = useTranslations('Services')
+// ── Phone Mockup (Card 1 — Apps) ─────────────────────────────
+function PhoneMockup() {
+  const icons = [
+    { bg: '#FF6B6B', em: '📍' }, { bg: '#4ECDC4', em: '🗓' },
+    { bg: '#45B7D1', em: '💬' }, { bg: '#96CEB4', em: '📷' },
+    { bg: '#FFEAA7', em: '🎵' }, { bg: '#DDA0DD', em: '💰' },
+    { bg: '#98D8C8', em: '🏃' }, { bg: '#F7DC6F', em: '⚙️' },
+    { bg: '#BB8FCE', em: '📊' }, { bg: '#76D7C4', em: '🛒' },
+    { bg: '#F1948A', em: '❤️' }, { bg: '#85C1E9', em: '🌤' },
+    { bg: '#FF6B6B', em: '🏋️' }, { bg: '#4ECDC4', em: '🎯' },
+    { bg: '#45B7D1', em: '🚀' }, { bg: '#96CEB4', em: '💡' },
+    { bg: '#FFEAA7', em: '🗺' }, { bg: '#DDA0DD', em: '🔔' },
+    { bg: '#98D8C8', em: '📱' }, { bg: '#F7DC6F', em: '🎮' },
+  ]
+  const rows: typeof icons[] = []
+  for (let i = 0; i < icons.length; i += 4) rows.push(icons.slice(i, i + 4))
+  const doubled = [...rows, ...rows]
 
-  const services = [
-    {
-      num: '01', icon: '📱',
-      title: t('s1Title'), desc: t('s1Desc'),
-      chips: ['Swift', 'Kotlin', 'React Native', 'Flutter'],
-    },
-    {
-      num: '02', icon: '🌐',
-      title: t('s2Title'), desc: t('s2Desc'),
-      chips: ['Next.js', 'TypeScript', 'React', 'Tailwind', 'Vercel'],
-    },
-    {
-      num: '03', icon: '🤖',
-      title: t('s3Title'), desc: t('s3Desc'),
-      chips: ['OpenAI', 'Anthropic', 'LangChain', 'Vector DBs'],
-    },
+  return (
+    <div className="relative mx-auto select-none" style={{ width: 128, height: 252 }}>
+      <div
+        className="absolute inset-0 rounded-[28px] overflow-hidden"
+        style={{
+          background: '#1a1a2e',
+          border: '2.5px solid rgba(255,255,255,0.12)',
+          boxShadow: '0 0 52px rgba(110,93,221,0.4), inset 0 1px 0 rgba(255,255,255,0.07)',
+        }}
+      >
+        {/* Dynamic island */}
+        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-[14px] bg-black rounded-full z-10" />
+
+        {/* Scrolling app grid */}
+        <div className="absolute inset-0 pt-10 pb-2 px-2 overflow-hidden">
+          <div style={{ animation: 'scrollApps 10s linear infinite' }}>
+            {doubled.map((row, ri) => (
+              <div key={ri} className="flex gap-1.5 justify-center mb-2">
+                {row.map(({ bg, em }) => (
+                  <div
+                    key={em + ri}
+                    className="w-6 h-6 rounded-md flex items-center justify-center text-[0.65rem]"
+                    style={{ background: bg }}
+                  >
+                    {em}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Home bar */}
+        <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-14 h-[3px] bg-white/30 rounded-full" />
+      </div>
+    </div>
+  )
+}
+
+// ── Chat Mockup (Card 2 — AI) ─────────────────────────────────
+function ChatMockup() {
+  const [aiVisible, setAiVisible] = useState(false)
+  const [aiReply, setAiReply] = useState(false)
+  const [userReply, setUserReply] = useState(false)
+
+  useEffect(() => {
+    let mounted = true
+    const cycle = () => {
+      if (!mounted) return
+      setAiVisible(false); setAiReply(false); setUserReply(false)
+      setTimeout(() => { if (mounted) setAiVisible(true) }, 700)
+      setTimeout(() => { if (mounted) setAiReply(true) }, 2600)
+      setTimeout(() => { if (mounted) setUserReply(true) }, 4200)
+      setTimeout(cycle, 7200)
+    }
+    cycle()
+    return () => { mounted = false }
+  }, [])
+
+  return (
+    <div className="w-full max-w-[240px] mx-auto flex flex-col gap-2">
+      {/* User message */}
+      <div className="flex justify-end">
+        <div
+          className="text-white text-[0.68rem] leading-[1.55] px-3 py-2 rounded-[14px] rounded-br-[4px] max-w-[80%]"
+          style={{ background: 'var(--purple)' }}
+        >
+          Kannst du mir eine Support-Antwort schreiben?
+        </div>
+      </div>
+
+      {/* AI bubble */}
+      {aiVisible && (
+        <div className="flex justify-start" style={{ animation: 'fadeInUp 0.3s ease both' }}>
+          <div
+            className="text-[0.68rem] leading-[1.55] px-3 py-2.5 rounded-[14px] rounded-bl-[4px] max-w-[80%]"
+            style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)' }}
+          >
+            {!aiReply ? (
+              <span className="flex gap-1 items-center h-[18px]">
+                <span className="thinking-dot" style={{ animationDelay: '0ms' }} />
+                <span className="thinking-dot" style={{ animationDelay: '180ms' }} />
+                <span className="thinking-dot" style={{ animationDelay: '360ms' }} />
+              </span>
+            ) : (
+              <span style={{ animation: 'fadeInUp 0.35s ease both' }}>
+                Natürlich! Hier ist eine freundliche Antwort für deinen Kunden…
+              </span>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Follow-up */}
+      {userReply && (
+        <div className="flex justify-end" style={{ animation: 'fadeInUp 0.3s ease both' }}>
+          <div
+            className="text-white text-[0.68rem] leading-[1.55] px-3 py-2 rounded-[14px] rounded-br-[4px]"
+            style={{ background: 'var(--purple)', opacity: 0.85 }}
+          >
+            Perfekt, genau das brauchte ich! 🎉
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ── Browser Mockup (Card 3 — Web) ─────────────────────────────
+function BrowserMockup({ visible }: { visible: boolean }) {
+  const bars = [
+    { pct: 64, color: 'var(--cyan)' },
+    { pct: 88, color: 'var(--blue-brand)' },
+    { pct: 46, color: 'var(--purple)' },
+    { pct: 94, color: 'var(--cyan)' },
+    { pct: 70, color: 'var(--blue-brand)' },
+    { pct: 56, color: 'var(--purple)' },
   ]
 
   return (
-    <section id="services" className="py-20 md:py-40 px-5 md:px-10 bg-white">
-      <span className="block text-[0.72rem] font-medium text-mid tracking-[0.08em] uppercase mb-5">{t('tag')}</span>
-      <h2
-        className="font-serif font-normal text-ink mb-6"
-        style={{ fontSize: 'clamp(2rem, 7vw, 5.5rem)', letterSpacing: '-2.5px', lineHeight: 1.02 }}
-      >
-        {t('h2Line1')}<br />{t('h2Line2')}
-      </h2>
-      <p className="text-[1rem] font-light text-mid max-w-[460px] leading-[1.8] mb-12 md:mb-20">{t('lead')}</p>
+    <div
+      className="w-full max-w-[220px] mx-auto rounded-xl overflow-hidden"
+      style={{ background: '#0d1020', border: '1px solid rgba(255,255,255,0.08)' }}
+    >
+      {/* Browser chrome */}
+      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-white/[0.07]">
+        <div className="w-[7px] h-[7px] rounded-full bg-[#FF5F57]" />
+        <div className="w-[7px] h-[7px] rounded-full bg-[#FFBD2E]" />
+        <div className="w-[7px] h-[7px] rounded-full bg-[#28C840]" />
+        <div className="flex-1 mx-2 bg-white/[0.07] rounded h-[14px] flex items-center px-2">
+          <span className="text-[0.45rem] text-white/25">ottosolutions.es/analytics</span>
+        </div>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 border border-black/[0.07] rounded-[20px] overflow-hidden">
-        {services.map((s) => (
+      {/* Chart */}
+      <div className="p-3">
+        <div className="text-[0.55rem] text-white/35 mb-2 font-light">Weekly Conversions</div>
+        <div className="flex items-end gap-1 h-16">
+          {bars.map((b, i) => (
+            <div
+              key={i}
+              className="flex-1 rounded-t"
+              style={{
+                background: b.color,
+                opacity: 0.75,
+                height: visible ? `${b.pct}%` : '3%',
+                transition: `height 0.75s ${i * 0.09}s cubic-bezier(.22,1,.36,1)`,
+              }}
+            />
+          ))}
+        </div>
+        <div className="flex justify-between mt-1.5">
+          {['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'].map((d) => (
+            <span key={d} className="text-[0.45rem] text-white/25">{d}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ── Tech chip ─────────────────────────────────────────────────
+function Chip({ label }: { label: string }) {
+  return (
+    <span className="text-[0.6rem] border border-white/15 rounded-full px-2.5 py-0.5 text-white/45 font-light">
+      {label}
+    </span>
+  )
+}
+
+// ── Services Section ──────────────────────────────────────────
+export default function Services() {
+  const t = useTranslations('Services')
+  const { ref: card3Ref, visible: card3Visible } = useReveal(0.25)
+
+  return (
+    <section id="services" className="py-20 md:py-40 px-5 md:px-10 bg-white">
+
+      {/* Section header */}
+      <div className="mb-12 md:mb-16">
+        <span className="flex items-center gap-2 text-[0.72rem] font-medium text-mid tracking-[0.08em] uppercase mb-5">
+          <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'var(--cyan)' }} />
+          {t('tag')}
+        </span>
+        <h2
+          className="font-serif font-normal text-ink mb-5"
+          style={{ fontSize: 'clamp(2rem, 7vw, 5.5rem)', letterSpacing: '-2.5px', lineHeight: 1.02 }}
+        >
+          {t('h2Line1')}<br />
+          <em style={{
+            background: 'var(--gradient-brand)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            fontStyle: 'italic',
+          }}>{t('h2Line2')}</em>
+        </h2>
+        <p className="text-[1rem] font-light text-mid max-w-[460px] leading-[1.8]">{t('lead')}</p>
+      </div>
+
+      {/* Bento Grid */}
+      <div className="grid gap-3 grid-cols-1 md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-2 xl:min-h-[480px]">
+
+        {/* Card 1 — Apps (left, 2×2) */}
+        <div
+          className="bento-card bento-card-apps relative rounded-2xl overflow-hidden md:col-span-2 xl:col-span-2 xl:row-span-2"
+          style={{
+            background: 'linear-gradient(145deg, #0c0c1e 0%, #13132c 100%)',
+            border: '1px solid rgba(255,255,255,0.07)',
+          }}
+        >
           <div
-            key={s.num}
-            className="p-8 md:p-12 border-r border-b border-black/[0.07] group hover:bg-[#f9f8f6] transition-colors relative overflow-hidden"
-          >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
-              style={{ background: 'linear-gradient(135deg,rgba(110,93,221,0.05) 0%,rgba(61,201,240,0.04) 100%)' }} />
-            <div className="relative z-10">
-              <div className="text-[0.68rem] text-mid mb-8 font-light tracking-[0.05em]">{s.num} &mdash;</div>
-              <div className="w-12 h-12 rounded-xl bg-white border border-black/[0.07] flex items-center justify-center text-[1.35rem] mb-6 shadow-sm">
-                {s.icon}
-              </div>
-              <h3 className="font-serif font-normal text-ink mb-4"
-                style={{ fontSize: '1.6rem', letterSpacing: '-0.8px', lineHeight: 1.15 }}>
-                {s.title}
+            className="absolute top-0 right-0 w-72 h-72 rounded-full pointer-events-none"
+            style={{ background: 'radial-gradient(circle at 70% 25%, rgba(110,93,221,0.2) 0%, transparent 65%)' }}
+          />
+          <div className="relative z-10 flex flex-col h-full p-8 md:p-10">
+            <span className="text-[0.6rem] text-white/30 font-light tracking-[0.08em]">01 —</span>
+            <div className="flex-1 flex items-center justify-center py-10 md:py-12">
+              <PhoneMockup />
+            </div>
+            <div>
+              <h3
+                className="font-serif font-normal text-white mb-3"
+                style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', letterSpacing: '-0.8px', lineHeight: 1.15 }}
+              >
+                {t('s1Title')}
               </h3>
-              <p className="text-[0.86rem] font-light text-mid leading-[1.8]">{s.desc}</p>
-              <div className="flex flex-wrap gap-1.5 mt-6">
-                {s.chips.map((c) => (
-                  <span key={c} className="text-[0.65rem] text-mid border border-black/[0.07] rounded-full px-3 py-1 font-light">
-                    {c}
-                  </span>
-                ))}
+              <p className="text-[0.83rem] font-light leading-[1.75]" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                {t('s1Desc')}
+              </p>
+              <div className="flex flex-wrap gap-1.5 mt-4">
+                {['Swift', 'Kotlin', 'React Native'].map((c) => <Chip key={c} label={c} />)}
               </div>
             </div>
           </div>
-        ))}
+        </div>
 
-        {/* CTA card */}
-        <div className="p-8 md:p-12 bg-[#f9f8f6] flex flex-col border-r border-b border-black/[0.07]">
-          <div className="text-[0.68rem] text-mid mb-8 font-light tracking-[0.05em]">+ &mdash;</div>
-          <div className="mt-auto">
-            <p className="font-serif font-normal text-ink mb-6"
-              style={{ fontSize: '1.4rem', letterSpacing: '-0.5px', lineHeight: 1.3 }}>
-              {t('ctaTitle')}
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center text-[0.875rem] font-medium px-7 py-3.5 bg-ink text-white rounded-full no-underline hover:opacity-85 transition-opacity min-h-[44px]"
-            >
-              {t('ctaButton')}
-            </a>
+        {/* Card 2 — AI (top right) */}
+        <div
+          className="bento-card bento-card-ai relative rounded-2xl overflow-hidden xl:col-span-2"
+          style={{
+            background: 'linear-gradient(145deg, #080c18 0%, #0d1025 100%)',
+            border: '1px solid rgba(255,255,255,0.07)',
+          }}
+        >
+          <div
+            className="absolute bottom-0 left-0 w-56 h-56 rounded-full pointer-events-none"
+            style={{ background: 'radial-gradient(circle at 30% 75%, rgba(61,238,219,0.14) 0%, transparent 65%)' }}
+          />
+          <div className="relative z-10 flex flex-col h-full p-8">
+            <span className="text-[0.6rem] text-white/30 font-light tracking-[0.08em]">02 —</span>
+            <div className="flex-1 flex items-center justify-center py-6">
+              <ChatMockup />
+            </div>
+            <div>
+              <h3
+                className="font-serif font-normal text-white mb-2"
+                style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', letterSpacing: '-0.6px', lineHeight: 1.2 }}
+              >
+                {t('s3Title')}
+              </h3>
+              <p className="text-[0.8rem] font-light leading-[1.75]" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                {t('s3Desc')}
+              </p>
+              <div className="flex flex-wrap gap-1.5 mt-3">
+                {['OpenAI', 'Claude', 'LangChain'].map((c) => <Chip key={c} label={c} />)}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Card 3 — Web (bottom right) */}
+        <div
+          ref={card3Ref}
+          className="bento-card bento-card-web relative rounded-2xl overflow-hidden xl:col-span-2"
+          style={{
+            background: 'linear-gradient(145deg, #0a0e1c 0%, #0e1228 100%)',
+            border: '1px solid rgba(255,255,255,0.07)',
+          }}
+        >
+          <div
+            className="absolute top-0 right-0 w-56 h-56 rounded-full pointer-events-none"
+            style={{ background: 'radial-gradient(circle at 72% 22%, rgba(61,201,240,0.14) 0%, transparent 65%)' }}
+          />
+          <div className="relative z-10 flex flex-col h-full p-8">
+            <span className="text-[0.6rem] text-white/30 font-light tracking-[0.08em]">03 —</span>
+            <div className="flex-1 flex items-center justify-center py-6">
+              <BrowserMockup visible={card3Visible} />
+            </div>
+            <div>
+              <h3
+                className="font-serif font-normal text-white mb-2"
+                style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', letterSpacing: '-0.6px', lineHeight: 1.2 }}
+              >
+                {t('s2Title')}
+              </h3>
+              <p className="text-[0.8rem] font-light leading-[1.75]" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                {t('s2Desc')}
+              </p>
+              <div className="flex flex-wrap gap-1.5 mt-3">
+                {['Next.js', 'TypeScript', 'Tailwind'].map((c) => <Chip key={c} label={c} />)}
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* CTA Banner */}
+      <div
+        className="relative mt-3 rounded-2xl overflow-hidden px-8 py-14 md:px-16 md:py-16 text-center"
+        style={{
+          background: 'linear-gradient(145deg, #0c0c1e 0%, #111128 100%)',
+          border: '1px solid rgba(255,255,255,0.07)',
+        }}
+      >
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 55% 80% at 50% 50%, rgba(110,93,221,0.18) 0%, transparent 70%)' }}
+        />
+        <div className="relative z-10">
+          <p
+            className="font-serif font-normal text-white mb-3"
+            style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)', letterSpacing: '-1.5px', lineHeight: 1.1 }}
+          >
+            {t('ctaTitle')}
+          </p>
+          <p className="text-[0.9rem] font-light mb-8" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            {t('ctaSub')}
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 text-[0.875rem] font-medium px-8 py-3.5 rounded-full no-underline min-h-[44px] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(110,93,221,0.35)]"
+            style={{ background: 'var(--gradient-brand)', color: '#0a0a0f' }}
+          >
+            {t('ctaButton')} →
+          </a>
+        </div>
+      </div>
+
+      <style>{`
+        .bento-card {
+          transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease;
+        }
+        .bento-card:hover {
+          transform: translateY(-4px);
+        }
+        .bento-card-apps:hover { box-shadow: 0 0 52px rgba(110,93,221,0.28); }
+        .bento-card-ai:hover   { box-shadow: 0 0 52px rgba(61,238,219,0.2); }
+        .bento-card-web:hover  { box-shadow: 0 0 52px rgba(61,201,240,0.2); }
+      `}</style>
     </section>
   )
 }

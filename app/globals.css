@@ -38,6 +38,16 @@
   }
 }
 
+@layer components {
+  .thinking-dot {
+    display: inline-block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.65);
+    animation: thinkingDot 1.2s ease-in-out infinite;
+  }
+}
+
 @layer utilities {
   .font-serif {
     font-family: var(--font-serif);
@@ -116,6 +126,24 @@
     top: 0; width: 100%;
     background: #0a0a0f;
     animation: scrollfill 2s ease-in-out infinite;
+  }
+
+  /* Bento: phone icon scroll */
+  @keyframes scrollApps {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+  /* Bento: fade in up */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* Bento: thinking dots */
+  @keyframes thinkingDot {
+    0%, 60%, 100% { opacity: 0.3; transform: scale(0.85); }
+    30%            { opacity: 1;   transform: scale(1.2); }
   }
 
 }

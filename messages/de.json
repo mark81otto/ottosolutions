@@ -23,14 +23,15 @@
     "tag": "Leistungen",
     "h2Line1": "Was wir",
     "h2Line2": "für dich bauen.",
-    "lead": "Zwei Kernkompetenzen. Ein Team. Kein Outsourcing.",
+    "lead": "Drei Kernkompetenzen. Ein Team. Kein Outsourcing.",
     "s1Title": "iOS & Android Apps",
     "s1Desc": "Native und cross-platform Mobile-Apps von der Idee bis zum Launch. UX/UI, Development und App Store Rollout aus einer Hand.",
     "s2Title": "Website-Entwicklung",
-    "s2Desc": "Performante Websites und Web-Apps mit Next.js — optimiert für Speed, SEO und Konversion. Mit Effekten die begeistern.",
+    "s2Desc": "Performante Websites mit Next.js — optimiert für Speed, SEO und Konversion.",
     "s3Title": "AI & Automation",
-    "s3Desc": "Intelligente Chatbots, Workflow-Automation und LLM-Integrationen. Wir bauen mit ChatGPT, Claude und Open-Source Modellen — direkt in deine Produkte integriert.",
+    "s3Desc": "Intelligente Chatbots, Workflow-Automation und LLM-Integrationen mit ChatGPT, Claude und Open-Source Modellen.",
     "ctaTitle": "Bereit für dein Projekt?",
+    "ctaSub": "Lass uns reden — die ersten 30 Minuten sind kostenlos.",
     "ctaButton": "Jetzt anfragen"
   },
   "Stats": {

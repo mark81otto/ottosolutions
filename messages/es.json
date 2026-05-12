@@ -23,14 +23,15 @@
     "tag": "Servicios",
     "h2Line1": "Qué",
     "h2Line2": "construimos para ti.",
-    "lead": "Dos competencias clave. Un equipo. Sin outsourcing.",
+    "lead": "Tres competencias clave. Un equipo. Sin outsourcing.",
     "s1Title": "Apps iOS y Android",
     "s1Desc": "Apps móviles nativas y multiplataforma desde la idea hasta el lanzamiento. UX/UI, desarrollo y publicación en App Store — todo de la mano.",
     "s2Title": "Desarrollo Web",
-    "s2Desc": "Webs y web apps de alto rendimiento con Next.js — optimizadas para velocidad, SEO y conversión. Con efectos que enamoran.",
+    "s2Desc": "Webs de alto rendimiento con Next.js — optimizadas para velocidad, SEO y conversión.",
     "s3Title": "IA y Automatización",
-    "s3Desc": "Chatbots inteligentes, automatización de flujos e integraciones con LLMs. Construimos con ChatGPT, Claude y modelos open-source — integrados directamente en tus productos.",
+    "s3Desc": "Chatbots inteligentes, automatización de flujos e integraciones con LLMs usando ChatGPT, Claude y modelos open-source.",
     "ctaTitle": "¿Listo para tu proyecto?",
+    "ctaSub": "Hablemos — los primeros 30 minutos son gratis.",
     "ctaButton": "Contactar"
   },
   "Stats": {
