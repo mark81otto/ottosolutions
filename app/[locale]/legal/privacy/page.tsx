@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { Link } from '@/i18n/routing'
 
 export default async function PrivacyPage({
   params,
@@ -114,7 +115,7 @@ export default async function PrivacyPage({
       <p>{t('section7Intro')}</p>
       <p>
         {t('section7Cookies')}{' '}
-        <a href="/legal/cookies">{t('cookiePolicy')}</a>
+        <Link href="/legal/cookies">{t('cookiePolicy')}</Link>
       </p>
 
       <h2>8. {t('section8Title')}</h2>
