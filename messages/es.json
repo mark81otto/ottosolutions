@@ -159,15 +159,15 @@
     "freeDesc": "Conócenos — sin compromiso. Discutimos tu proyecto."
   },
   "Chatbot": {
-    "welcome": "¡Hola! Soy Otto, el asistente IA de Otto Solutions 👋 Puedo responder todas tus preguntas sobre nuestros servicios. ¿En qué piensas?",
+    "welcome": "¡Hola! Soy Sol 🌞 el asistente IA de Otto Solutions. ¿Cómo puedo ayudarte?",
     "online": "En línea",
-    "role": "Asistente IA · Otto Solutions",
+    "role": "Asistente IA • Otto Solutions",
     "placeholder": "Escribe un mensaje...",
     "poweredBy": "Powered by Claude AI",
-    "suggest1": "¿Cuánto cuesta una app?",
-    "suggest2": "¿Qué servicios ofrecéis?",
-    "suggest3": "¿Cuándo podéis empezar?",
-    "errorMessage": "Lo siento, algo salió mal 😅 Inténtalo de nuevo o escríbenos: hallo@ottosolutions.es"
+    "suggest1": "¿Qué servicios ofrecéis?",
+    "suggest2": "¿Cómo funciona un proyecto?",
+    "suggest3": "¿Reservar una consulta gratis?",
+    "errorMessage": "Lo siento, algo salió mal 😅 Inténtalo de nuevo o escríbenos a hallo@ottosolutions.es"
   },
   "Footer": {
     "imprint": "Aviso Legal",

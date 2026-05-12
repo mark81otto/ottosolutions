@@ -92,15 +92,18 @@ export default function AIChatbot() {
         <div className="chatbot-avatar">
           <div className="avatar-glow" />
           <div className="avatar-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 2a8 8 0 018 8c0 6-8 12-8 12s-8-6-8-12a8 8 0 018-8z" strokeLinecap="round" strokeLinejoin="round" />
-              <circle cx="12" cy="10" r="3" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" /><path d="M12 20v2" />
+              <path d="M4.93 4.93l1.41 1.41" /><path d="M17.66 17.66l1.41 1.41" />
+              <path d="M2 12h2" /><path d="M20 12h2" />
+              <path d="M4.93 19.07l1.41-1.41" /><path d="M17.66 6.34l1.41-1.41" />
             </svg>
           </div>
         </div>
         <div className="chatbot-info">
           <div className="chatbot-name">
-            Otto
+            Sol
             <span className="chatbot-status">
               <span className="status-dot" />
               {t('online')}
@@ -116,8 +119,12 @@ export default function AIChatbot() {
           <div key={i} className={`message message-${msg.role}`}>
             {msg.role === 'assistant' && (
               <div className="message-avatar">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 2a8 8 0 018 8c0 6-8 12-8 12s-8-6-8-12a8 8 0 018-8z" strokeLinecap="round" strokeLinejoin="round" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2" /><path d="M12 20v2" />
+                  <path d="M4.93 4.93l1.41 1.41" /><path d="M17.66 17.66l1.41 1.41" />
+                  <path d="M2 12h2" /><path d="M20 12h2" />
+                  <path d="M4.93 19.07l1.41-1.41" /><path d="M17.66 6.34l1.41-1.41" />
                 </svg>
               </div>
             )}
