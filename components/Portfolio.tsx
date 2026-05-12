@@ -31,6 +31,12 @@ function CountUp({ target, duration = 1500, suffix = '' }: {
       requestAnimationFrame(tick)
     }
 
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      startAnimation()
+      return
+    }
+
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) startAnimation()
     }, { threshold: 0.3 })
@@ -41,113 +47,134 @@ function CountUp({ target, duration = 1500, suffix = '' }: {
   return <span ref={ref}>{count}{suffix}</span>
 }
 
-/* ─── FitTrack Card ─────────────────────────────────────────────────── */
-function FitTrackCard() {
+/* ─── VerveVoid Card ────────────────────────────────────────────────── */
+function VerveVoidCard() {
   const t = useTranslations('Portfolio')
   return (
-    <div className="portfolio-card pf-fittrack">
+    <a
+      href="https://apps.apple.com/es/app/verve-void/id6762288350"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="portfolio-card pf-verve pf-card-link"
+    >
       <div className="pf-wide-layout">
-        <div className="pf-rings-hero">
-          <svg viewBox="0 0 200 200" className="pf-rings-svg">
-            <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(239,68,68,0.12)" strokeWidth="14" />
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#ef4444" strokeWidth="14"
-              strokeLinecap="round" strokeDasharray="502" strokeDashoffset="502"
-              transform="rotate(-90 100 100)" className="pf-ring pf-ring-move" />
-            <circle cx="100" cy="100" r="62" fill="none" stroke="rgba(34,197,94,0.12)" strokeWidth="14" />
-            <circle cx="100" cy="100" r="62" fill="none" stroke="#22c55e" strokeWidth="14"
-              strokeLinecap="round" strokeDasharray="389" strokeDashoffset="389"
-              transform="rotate(-90 100 100)" className="pf-ring pf-ring-exercise" />
-            <circle cx="100" cy="100" r="44" fill="none" stroke="rgba(59,130,246,0.12)" strokeWidth="14" />
-            <circle cx="100" cy="100" r="44" fill="none" stroke="#3b82f6" strokeWidth="14"
-              strokeLinecap="round" strokeDasharray="276" strokeDashoffset="276"
-              transform="rotate(-90 100 100)" className="pf-ring pf-ring-stand" />
-          </svg>
-          <div className="pf-float-stat pf-float-top">
-            <span className="pf-float-icon">👟</span>
-            <span className="pf-float-val"><CountUp target={8432} /></span>
-            <span className="pf-float-lbl">Steps</span>
+        <div className="pf-vv-visual">
+          <div className="pf-vv-icon-float">
+            <div className="pf-vv-icon">V&amp;V</div>
           </div>
-          <div className="pf-float-stat pf-float-bot">
-            <span className="pf-float-icon">🔥</span>
-            <span className="pf-float-val"><CountUp target={412} /></span>
-            <span className="pf-float-lbl">kcal</span>
+          <div className="pf-room-card">
+            <div className="pf-room-img-wrap">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=220&fit=crop&q=80"
+                alt="Luxury living room"
+                loading="lazy"
+              />
+              <div className="pf-room-overlay">
+                <div className="pf-ai-score-pill">
+                  <span className="pf-ai-score-label">AI Score</span>
+                  <span className="pf-ai-score-val"><CountUp target={82} /></span>
+                </div>
+              </div>
+            </div>
+            <div className="pf-palette">
+              {['#8B6F47', '#C4956A', '#E8D5B7', '#D4A574', '#6B4C2A'].map(c => (
+                <div key={c} className="pf-swatch" style={{ background: c }} />
+              ))}
+            </div>
+          </div>
+          <div className="pf-voice-chip">
+            <span>🎙️</span>
+            <span className="pf-voice-name">Charline AI</span>
+            <div className="pf-voice-waves">
+              {[0, 1, 2, 3, 4].map(i => (
+                <div key={i} className="pf-wave-bar" style={{ animationDelay: `${i * 0.12}s` }} />
+              ))}
+            </div>
           </div>
         </div>
         <div className="pf-info">
-          <div className="pf-badge"><span className="pf-dot" />iOS · HealthKit · watchOS</div>
-          <h3 className="pf-title">FitTrack</h3>
+          <div className="pf-badge"><span className="pf-dot" />iOS · Claude AI</div>
+          <h3 className="pf-title">Verve &amp; Void</h3>
           <p className="pf-subtitle">{t('p1Title')}</p>
           <p className="pf-desc">{t('p1Desc')}</p>
           <div className="pf-metrics">
-            <div className="pf-metric"><span className="pf-mval">50k+</span><span className="pf-mlbl">{t('p1Metric1')}</span></div>
-            <div className="pf-metric"><span className="pf-mval">4.8 ★</span><span className="pf-mlbl">{t('p1Metric2')}</span></div>
-            <div className="pf-metric"><span className="pf-mval">A+</span><span className="pf-mlbl">App Store</span></div>
+            <div className="pf-metric"><span className="pf-mval">App Store</span><span className="pf-mlbl">Live</span></div>
+            <div className="pf-metric"><span className="pf-mval">Claude AI</span><span className="pf-mlbl">Powered</span></div>
           </div>
           <div className="pf-tags">
-            {['Swift', 'HealthKit', 'watchOS', 'Core Data'].map(c => <span key={c}>{c}</span>)}
+            {['SwiftUI', 'Claude AI', 'ARKit', 'Core ML'].map(c => <span key={c}>{c}</span>)}
           </div>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 
-/* ─── AuraCommerce Card ─────────────────────────────────────────────── */
-function AuraCommerceCard() {
+/* ─── Sensora Card ──────────────────────────────────────────────────── */
+function SensoraCard() {
   const t = useTranslations('Portfolio')
-  const [cartCount, setCartCount] = useState(2)
-
-  useEffect(() => {
-    const id = setInterval(() => setCartCount(n => (n % 11) + 1), 2500)
-    return () => clearInterval(id)
-  }, [])
-
-  const products = [
-    { name: 'Sneaker Pro', price: '€129', img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop&q=80' },
-    { name: 'Watch X',    price: '€249', img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop&q=80' },
-    { name: 'Bag Luxe',   price: '€89',  img: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&h=200&fit=crop&q=80' },
-    { name: 'Cap Y',      price: '€39',  img: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=200&h=200&fit=crop&q=80' },
-    { name: 'Hoodie',     price: '€79',  img: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=200&h=200&fit=crop&q=80' },
-    { name: 'Glasses',    price: '€159', img: 'https://images.unsplash.com/photo-1577803645773-f96470509666?w=200&h=200&fit=crop&q=80' },
-  ]
-
   return (
-    <div className="portfolio-card pf-aura">
+    <a
+      href="https://sensora.care"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="portfolio-card pf-sensora pf-card-link"
+    >
       <div className="pf-browser">
         <div className="pf-browser-bar">
           <span className="pf-dot-red" /><span className="pf-dot-yellow" /><span className="pf-dot-green" />
-          <span className="pf-url">auracommerce.es</span>
-          <span className="pf-cart">🛒 {cartCount}</span>
+          <span className="pf-url">sensora.care</span>
+          <span className="pf-live-badge">● Live</span>
         </div>
-        <div className="pf-shop-grid">
-          {products.map(p => (
-            <div key={p.name} className="pf-product">
-              <div className="pf-product-img-wrap">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.img} alt={p.name} loading="lazy" />
-                <div className="pf-product-overlay">+ Cart</div>
+        <div className="pf-sensora-dash">
+          <div className="pf-patient-card">
+            <div className="pf-patient-info">
+              <div className="pf-patient-avatar">MS</div>
+              <div>
+                <div className="pf-patient-name">Maria Schneider</div>
+                <div className="pf-patient-room">Zimmer 204</div>
               </div>
-              <div className="pf-product-name">{p.name}</div>
-              <div className="pf-product-price">{p.price}</div>
             </div>
-          ))}
-          <div className="pf-order-toast">✓ Order placed!</div>
+            <div className="pf-kritisch-badge">Kritisch</div>
+          </div>
+          <div className="pf-vitals-grid">
+            <div className="pf-vital pf-vital-danger">
+              <div className="pf-vital-icon">💓</div>
+              <div className="pf-vital-val">128</div>
+              <div className="pf-vital-label">BPM</div>
+            </div>
+            <div className="pf-vital pf-vital-warning">
+              <div className="pf-vital-icon">🫁</div>
+              <div className="pf-vital-val">89%</div>
+              <div className="pf-vital-label">SpO₂</div>
+            </div>
+            <div className="pf-vital pf-vital-ai">
+              <div className="pf-vital-icon">🤖</div>
+              <div className="pf-vital-val"><CountUp target={92} /></div>
+              <div className="pf-vital-label">AI Score</div>
+            </div>
+          </div>
+          <div className="pf-ai-alert">
+            <span className="pf-ai-alert-icon">⚡</span>
+            <span className="pf-ai-alert-text">Tachykardie erkannt — Arzt benachrichtigt</span>
+          </div>
         </div>
       </div>
       <div className="pf-info">
-        <div className="pf-badge"><span className="pf-dot" />Next.js · E-Commerce</div>
-        <h3 className="pf-title">AuraCommerce</h3>
+        <div className="pf-badge pf-badge-health"><span className="pf-dot pf-dot-health" />Healthcare · AI</div>
+        <h3 className="pf-title">Sensora</h3>
         <p className="pf-subtitle">{t('p2Title')}</p>
         <p className="pf-desc">{t('p2Desc')}</p>
         <div className="pf-metrics">
-          <div className="pf-metric"><span className="pf-mval">99</span><span className="pf-mlbl">Lighthouse</span></div>
-          <div className="pf-metric"><span className="pf-mval">3</span><span className="pf-mlbl">{t('p2Metric2')}</span></div>
+          <div className="pf-metric"><span className="pf-mval">Live</span><span className="pf-mlbl">Production</span></div>
+          <div className="pf-metric"><span className="pf-mval">24/7</span><span className="pf-mlbl">Monitoring</span></div>
         </div>
         <div className="pf-tags">
-          {['Next.js', 'Stripe', 'Sanity CMS'].map(c => <span key={c}>{c}</span>)}
+          {['Next.js', 'AI/ML', 'HL7 FHIR', 'Real-time'].map(c => <span key={c}>{c}</span>)}
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 
@@ -302,8 +329,8 @@ export default function Portfolio() {
           <p className="pf-lead">{t('lead')}</p>
         </div>
         <div className="pf-bento">
-          <FitTrackCard />
-          <AuraCommerceCard />
+          <VerveVoidCard />
+          <SensoraCard />
           <NovaChatCard />
           <LogiXCard />
         </div>
