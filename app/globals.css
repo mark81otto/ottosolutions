@@ -46,6 +46,13 @@
     background: rgba(255, 255, 255, 0.65);
     animation: thinkingDot 1.2s ease-in-out infinite;
   }
+  .thinking-dot-dark {
+    display: inline-block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(10, 10, 15, 0.35);
+    animation: thinkingDot 1.2s ease-in-out infinite;
+  }
 }
 
 @layer utilities {

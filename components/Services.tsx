@@ -117,13 +117,13 @@ function ChatMockup() {
         <div className="flex justify-start" style={{ animation: 'fadeInUp 0.3s ease both' }}>
           <div
             className="text-[0.68rem] leading-[1.55] px-3 py-2.5 rounded-[14px] rounded-bl-[4px] max-w-[80%]"
-            style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)' }}
+            style={{ background: 'rgba(0,0,0,0.06)', color: '#0a0a0f' }}
           >
             {!aiReply ? (
               <span className="flex gap-1 items-center h-[18px]">
-                <span className="thinking-dot" style={{ animationDelay: '0ms' }} />
-                <span className="thinking-dot" style={{ animationDelay: '180ms' }} />
-                <span className="thinking-dot" style={{ animationDelay: '360ms' }} />
+                <span className="thinking-dot-dark" style={{ animationDelay: '0ms' }} />
+                <span className="thinking-dot-dark" style={{ animationDelay: '180ms' }} />
+                <span className="thinking-dot-dark" style={{ animationDelay: '360ms' }} />
               </span>
             ) : (
               <span style={{ animation: 'fadeInUp 0.35s ease both' }}>
@@ -201,7 +201,10 @@ function BrowserMockup({ visible }: { visible: boolean }) {
 // ── Tech chip ─────────────────────────────────────────────────
 function Chip({ label }: { label: string }) {
   return (
-    <span className="text-[0.6rem] border border-white/15 rounded-full px-2.5 py-0.5 text-white/45 font-light">
+    <span
+      className="text-[0.6rem] rounded-full px-2.5 py-0.5 font-light"
+      style={{ background: 'rgba(110,93,221,0.06)', border: '1px solid rgba(110,93,221,0.15)', color: '#6E5DDD' }}
+    >
       {label}
     </span>
   )
@@ -244,25 +247,25 @@ export default function Services() {
         <div
           className="bento-card bento-card-apps relative rounded-2xl overflow-hidden md:col-span-2 xl:col-span-2 xl:row-span-2"
           style={{
-            background: 'linear-gradient(145deg, #0c0c1e 0%, #13132c 100%)',
-            border: '1px solid rgba(255,255,255,0.07)',
+            background: 'linear-gradient(135deg, #ffffff 0%, #f9f8f6 100%)',
+            border: '1px solid rgba(110,93,221,0.08)',
           }}
         >
           <div
             className="absolute top-0 right-0 w-72 h-72 rounded-full pointer-events-none"
-            style={{ background: 'radial-gradient(circle at 70% 25%, rgba(110,93,221,0.18) 0%, transparent 65%)' }}
+            style={{ background: 'radial-gradient(circle at 70% 25%, rgba(110,93,221,0.07) 0%, transparent 65%)', filter: 'blur(40px)' }}
           />
           <div className="bento-card-large relative z-10 p-8 md:p-10 h-full">
             {/* Left: text */}
             <div className="flex flex-col gap-5 justify-center">
-              <span className="text-[0.6rem] text-white/30 font-light tracking-[0.08em]">01 — Mobile</span>
+              <span className="text-[0.6rem] text-mid font-light tracking-[0.08em]">01 — Mobile</span>
               <h3
-                className="font-serif font-normal text-white"
+                className="font-serif font-normal text-ink"
                 style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', letterSpacing: '-0.8px', lineHeight: 1.15 }}
               >
                 {t('s1Title')}
               </h3>
-              <p className="text-[0.83rem] font-light leading-[1.75]" style={{ color: 'rgba(255,255,255,0.45)' }}>
+              <p className="text-[0.83rem] font-light text-mid leading-[1.75]">
                 {t('s1Desc')}
               </p>
               <div className="flex flex-wrap gap-1.5">
@@ -281,27 +284,27 @@ export default function Services() {
         <div
           className="bento-card bento-card-ai relative rounded-2xl overflow-hidden xl:col-span-2"
           style={{
-            background: 'linear-gradient(145deg, #080c18 0%, #0d1025 100%)',
-            border: '1px solid rgba(255,255,255,0.07)',
+            background: 'linear-gradient(135deg, #ffffff 0%, #f9f8f6 100%)',
+            border: '1px solid rgba(110,93,221,0.08)',
           }}
         >
           <div
             className="absolute bottom-0 left-0 w-56 h-56 rounded-full pointer-events-none"
-            style={{ background: 'radial-gradient(circle at 30% 75%, rgba(61,238,219,0.14) 0%, transparent 65%)' }}
+            style={{ background: 'radial-gradient(circle at 30% 80%, rgba(61,238,219,0.1) 0%, transparent 65%)', filter: 'blur(40px)' }}
           />
           <div className="relative z-10 flex flex-col h-full p-8">
-            <span className="text-[0.6rem] text-white/30 font-light tracking-[0.08em]">02 —</span>
+            <span className="text-[0.6rem] text-mid font-light tracking-[0.08em]">02 —</span>
             <div className="flex-1 flex items-center justify-center py-6">
               <ChatMockup />
             </div>
             <div>
               <h3
-                className="font-serif font-normal text-white mb-2"
+                className="font-serif font-normal text-ink mb-2"
                 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', letterSpacing: '-0.6px', lineHeight: 1.2 }}
               >
                 {t('s3Title')}
               </h3>
-              <p className="text-[0.8rem] font-light leading-[1.75]" style={{ color: 'rgba(255,255,255,0.45)' }}>
+              <p className="text-[0.8rem] font-light text-mid leading-[1.75]">
                 {t('s3Desc')}
               </p>
               <div className="flex flex-wrap gap-1.5 mt-3">
@@ -316,27 +319,27 @@ export default function Services() {
           ref={card3Ref}
           className="bento-card bento-card-web relative rounded-2xl overflow-hidden xl:col-span-2"
           style={{
-            background: 'linear-gradient(145deg, #0a0e1c 0%, #0e1228 100%)',
-            border: '1px solid rgba(255,255,255,0.07)',
+            background: 'linear-gradient(135deg, #ffffff 0%, #f9f8f6 100%)',
+            border: '1px solid rgba(110,93,221,0.08)',
           }}
         >
           <div
             className="absolute top-0 right-0 w-56 h-56 rounded-full pointer-events-none"
-            style={{ background: 'radial-gradient(circle at 72% 22%, rgba(61,201,240,0.14) 0%, transparent 65%)' }}
+            style={{ background: 'radial-gradient(circle at 75% 20%, rgba(61,201,240,0.1) 0%, transparent 65%)', filter: 'blur(40px)' }}
           />
           <div className="relative z-10 flex flex-col h-full p-8">
-            <span className="text-[0.6rem] text-white/30 font-light tracking-[0.08em]">03 —</span>
+            <span className="text-[0.6rem] text-mid font-light tracking-[0.08em]">03 —</span>
             <div className="flex-1 flex items-center justify-center py-6">
               <BrowserMockup visible={card3Visible} />
             </div>
             <div>
               <h3
-                className="font-serif font-normal text-white mb-2"
+                className="font-serif font-normal text-ink mb-2"
                 style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.65rem)', letterSpacing: '-0.6px', lineHeight: 1.2 }}
               >
                 {t('s2Title')}
               </h3>
-              <p className="text-[0.8rem] font-light leading-[1.75]" style={{ color: 'rgba(255,255,255,0.45)' }}>
+              <p className="text-[0.8rem] font-light text-mid leading-[1.75]">
                 {t('s2Desc')}
               </p>
               <div className="flex flex-wrap gap-1.5 mt-3">
@@ -351,28 +354,32 @@ export default function Services() {
       <div
         className="relative mt-3 rounded-2xl overflow-hidden px-8 py-14 md:px-16 md:py-16 text-center"
         style={{
-          background: 'linear-gradient(145deg, #0c0c1e 0%, #111128 100%)',
-          border: '1px solid rgba(255,255,255,0.07)',
+          background: 'linear-gradient(135deg, rgba(61,238,219,0.05) 0%, #ffffff 50%, rgba(110,93,221,0.05) 100%)',
+          border: '1px solid rgba(110,93,221,0.12)',
         }}
       >
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 55% 80% at 50% 50%, rgba(110,93,221,0.18) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse 55% 70% at 50% 50%, rgba(61,238,219,0.07) 0%, transparent 65%)' }}
         />
         <div className="relative z-10">
           <p
-            className="font-serif font-normal text-white mb-3"
+            className="font-serif font-normal text-ink mb-3"
             style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)', letterSpacing: '-1.5px', lineHeight: 1.1 }}
           >
             {t('ctaTitle')}
           </p>
-          <p className="text-[0.9rem] font-light mb-8" style={{ color: 'rgba(255,255,255,0.4)' }}>
+          <p className="text-[0.9rem] font-light text-mid mb-8">
             {t('ctaSub')}
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 text-[0.875rem] font-medium px-8 py-3.5 rounded-full no-underline min-h-[44px] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(110,93,221,0.35)]"
-            style={{ background: 'var(--gradient-brand)', color: '#0a0a0f' }}
+            className="inline-flex items-center gap-2 text-[0.875rem] font-medium px-8 py-3.5 rounded-full no-underline min-h-[44px] transition-all hover:-translate-y-0.5"
+            style={{
+              background: 'var(--gradient-brand)',
+              color: '#0a0a0f',
+              boxShadow: '0 8px 24px rgba(110,93,221,0.22)',
+            }}
           >
             {t('ctaButton')} →
           </a>
@@ -381,12 +388,15 @@ export default function Services() {
 
       <style>{`
         .bento-card {
-          transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease;
+          transition: transform 0.4s cubic-bezier(.22,1,.36,1), box-shadow 0.4s ease, border-color 0.4s ease;
         }
-        .bento-card:hover { transform: translateY(-4px); }
-        .bento-card-apps:hover { box-shadow: 0 0 52px rgba(110,93,221,0.28); }
-        .bento-card-ai:hover   { box-shadow: 0 0 52px rgba(61,238,219,0.2); }
-        .bento-card-web:hover  { box-shadow: 0 0 52px rgba(61,201,240,0.2); }
+        .bento-card:hover {
+          transform: translateY(-4px);
+          border-color: rgba(110,93,221,0.22) !important;
+        }
+        .bento-card-apps:hover { box-shadow: 0 20px 60px rgba(110,93,221,0.12), 0 0 80px rgba(61,238,219,0.07); }
+        .bento-card-ai:hover   { box-shadow: 0 20px 60px rgba(61,238,219,0.12), 0 0 80px rgba(110,93,221,0.07); }
+        .bento-card-web:hover  { box-shadow: 0 20px 60px rgba(61,201,240,0.12), 0 0 80px rgba(61,238,219,0.07); }
       `}</style>
     </section>
   )
