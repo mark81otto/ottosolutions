@@ -4,7 +4,7 @@ import Hero       from '@/components/Hero'
 import Marquee    from '@/components/Marquee'
 import StickyText from '@/components/StickyText'
 import Services   from '@/components/Services'
-import GlassStats from '@/components/GlassStats'
+import Stats from '@/components/Stats'
 import Interlude  from '@/components/Interlude'
 import Portfolio  from '@/components/Portfolio'
 import About      from '@/components/About'
@@ -25,7 +25,7 @@ export default async function Home({
         <Marquee />
         <StickyText />
         <Services />
-        <GlassStats />
+        <Stats />
         <Interlude />
         <Portfolio />
         <About />
