@@ -5,6 +5,7 @@ import { Link } from '@/i18n/routing'
 
 export default function Footer() {
   const t = useTranslations('Footer')
+  const year = new Date().getFullYear()
 
   return (
     <footer className="footer-root">
@@ -70,7 +71,8 @@ export default function Footer() {
           <nav className="footer-nav">
             <a href="/#about" className="footer-nav-link">{t('company1')}</a>
             <a href="/#contact" className="footer-nav-link">{t('company2')}</a>
-            <Link href="/legal/imprint" className="footer-nav-link">{t('company3')}</Link>
+            <a href="tel:+34647922170" className="footer-nav-link">+34 647 922 17</a>
+            <a href="mailto:mark@otto-solutions.com" className="footer-nav-link">mark@otto-solutions.com</a>
           </nav>
         </div>
 
@@ -78,6 +80,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4 className="footer-col-title">{t('legalTitle')}</h4>
           <nav className="footer-nav">
+            <Link href="/legal/imprint" className="footer-nav-link">{t('company3')}</Link>
             <Link href="/legal/privacy" className="footer-nav-link">{t('legal1')}</Link>
             <Link href="/legal/cookies" className="footer-nav-link">{t('legal2')}</Link>
             <Link href="/legal/terms" className="footer-nav-link">{t('legal3')}</Link>
@@ -86,9 +89,9 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>© 2025 Otto Solutions SL · Valencia, España</span>
+        <span>© {year} Otto Solutions SL · Valencia, España · CIF B19731256</span>
         <span className="footer-bottom-sep">·</span>
-        <span>CIF B19731256</span>
+        <span>{t('madeWith')} <span className="footer-heart">♥</span> {t('inValencia')}</span>
       </div>
     </footer>
   )

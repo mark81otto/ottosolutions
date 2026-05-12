@@ -269,7 +269,7 @@ export default function Contact() {
             </div>
             <h3 className="cinfo-title">{t('directTitle')}</h3>
             <div className="cinfo-list">
-              <a href="mailto:hallo@ottosolutions.es" className="cinfo-item">
+              <a href="mailto:mark@otto-solutions.com" className="cinfo-item">
                 <div className="cinfo-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" strokeLinecap="round" strokeLinejoin="round" />
@@ -278,7 +278,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="cinfo-label">{t('mailLabel')}</div>
-                  <div className="cinfo-value">hallo@ottosolutions.es</div>
+                  <div className="cinfo-value">mark@otto-solutions.com</div>
                 </div>
               </a>
               <div className="cinfo-item">

@@ -78,18 +78,23 @@
     "p1Desc": "App iOS nativa con HealthKit, Apple Watch companion y planes de entrenamiento personalizados.",
     "p1m1": "50k+", "p1m1l": "Descargas",
     "p1m2": "4.8 ★", "p1m2l": "App Store",
+    "p1Metric1": "Descargas",
+    "p1Metric2": "Valoración App Store",
     "p2Cat": "Next.js · E-Commerce",
     "p2Name": "AuraCommerce",
     "p2Title": "Tienda Premium Multiidioma",
     "p2Desc": "E-commerce headless con Stripe, soporte DE/EN/ES y puntuación 99 en Lighthouse.",
     "p2m1": "99", "p2m1l": "Lighthouse",
     "p2m2": "3", "p2m2l": "Idiomas",
+    "p2Metric2": "Idiomas",
     "p3Cat": "IA · Automatización",
     "p3Name": "NovaChat",
     "p3Title": "Chatbot IA Personalizado",
     "p3Desc": "Chatbot GPT-4 entrenado con datos de empresa — integrado en web + WhatsApp Business.",
     "p3m1": "−60%", "p3m1l": "Carga de soporte",
     "p3m2": "24/7", "p3m2l": "Disponible",
+    "p3Metric1": "Carga de soporte",
+    "p3Metric2": "Disponibilidad",
     "p4Cat": "Web App · Multiplataforma",
     "p4Name": "LogiX",
     "p4Title": "Plataforma Logística para PYMEs",
@@ -167,7 +172,7 @@
     "suggest1": "¿Qué servicios ofrecéis?",
     "suggest2": "¿Cómo funciona un proyecto?",
     "suggest3": "¿Reservar una consulta gratis?",
-    "errorMessage": "Lo siento, algo salió mal 😅 Inténtalo de nuevo o escríbenos a hallo@ottosolutions.es"
+    "errorMessage": "Lo siento, algo salió mal 😅 Inténtalo de nuevo o escríbenos a mark@otto-solutions.com"
   },
   "Footer": {
     "tagline": "Apps, webs e IA desde Valencia.",
@@ -182,7 +187,9 @@
     "legalTitle": "Legal",
     "legal1": "Política de Privacidad",
     "legal2": "Política de Cookies",
-    "legal3": "Términos y Condiciones"
+    "legal3": "Términos y Condiciones",
+    "madeWith": "Hecho con",
+    "inValencia": "en Valencia"
   },
   "Imprint": {
     "title": "Aviso Legal",

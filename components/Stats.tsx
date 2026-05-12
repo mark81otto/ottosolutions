@@ -11,12 +11,13 @@ function CountUp({ target, duration = 1500 }: { target: number; duration?: numbe
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const obs = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting || started.current) return
+
+    function startAnimation() {
+      if (started.current) return
       started.current = true
-      const start = Date.now()
+      const startTime = Date.now()
       const tick = () => {
-        const elapsed = Date.now() - start
+        const elapsed = Date.now() - startTime
         const progress = Math.min(elapsed / duration, 1)
         const eased = 1 - Math.pow(1 - progress, 3)
         setCount(Math.floor(target * eased))
@@ -24,7 +25,18 @@ function CountUp({ target, duration = 1500 }: { target: number; duration?: numbe
         else setCount(target)
       }
       requestAnimationFrame(tick)
-    }, { threshold: 0.5 })
+    }
+
+    // Fire immediately if already in viewport (e.g. small screens / slow scroll)
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      startAnimation()
+      return
+    }
+
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) startAnimation()
+    }, { threshold: 0.3 })
     obs.observe(el)
     return () => obs.disconnect()
   }, [target, duration])

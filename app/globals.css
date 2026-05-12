@@ -766,6 +766,7 @@
   flex-wrap: wrap;
 }
 .footer-bottom-sep { opacity: 0.4; }
+.footer-heart { color: #ef4444; }
 
 /* =============================================
    LEGAL PAGES
@@ -873,6 +874,265 @@
   font-size: 0.88rem !important;
 }
 .legal-card p { margin: 0.25rem 0 !important; }
+
+/* =============================================
+   PORTFOLIO
+   ============================================= */
+.pf-section { background: #ffffff; padding: 6rem 2rem; }
+.pf-inner { max-width: 1280px; margin: 0 auto; }
+.pf-header { margin-bottom: 4rem; }
+.pf-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #6E5DDD; margin-bottom: 1.5rem;
+}
+.pf-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, #3DEEDB, #6E5DDD); }
+.pf-h2 {
+  font-family: 'Playfair Display', serif; font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -2px; line-height: 1.05;
+  color: #0a0a0f; margin-bottom: 1.25rem;
+}
+.pf-gradient-text {
+  background: linear-gradient(135deg, #3DEEDB 0%, #3DC9F0 50%, #6E5DDD 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; font-style: italic;
+}
+.pf-lead { font-size: 1.05rem; color: #888896; font-weight: 300; max-width: 480px; line-height: 1.6; }
+
+/* Bento grid: FitTrack (col 1-2), Aura+Nova (col 1 + col 2), LogiX (col 1-2) */
+.pf-bento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.pf-fittrack, .pf-logix { grid-column: span 2; }
+
+/* Base card */
+.portfolio-card {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #ffffff 0%, #f9f8f6 100%);
+  border: 1px solid rgba(110,93,221,0.08);
+  border-radius: 24px; padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  min-height: 460px;
+}
+.portfolio-card::before {
+  content: ''; position: absolute; width: 300px; height: 300px;
+  filter: blur(60px); pointer-events: none; z-index: 0;
+}
+.pf-fittrack::before { top: -50px; right: -50px; background: radial-gradient(circle, rgba(239,68,68,0.08), transparent 70%); }
+.pf-aura::before { bottom: -50px; left: -50px; background: radial-gradient(circle, rgba(34,197,94,0.08), transparent 70%); }
+.pf-nova::before { top: 0; right: 0; background: radial-gradient(circle, rgba(110,93,221,0.12), transparent 70%); }
+.pf-logix::before { top: 50%; left: 30%; width: 500px; background: radial-gradient(circle, rgba(61,201,240,0.08), transparent 70%); }
+.portfolio-card > * { position: relative; z-index: 1; }
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(110,93,221,0.25);
+  box-shadow: 0 20px 60px rgba(110,93,221,0.12), 0 0 80px rgba(61,238,219,0.08);
+}
+
+/* Wide layout (FitTrack + LogiX) */
+.pf-wide-layout {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; height: 100%;
+}
+
+/* Shared info block */
+.pf-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; border-radius: 999px;
+  background: rgba(61,238,219,0.08); border: 1px solid rgba(61,238,219,0.25);
+  font-size: 0.7rem; font-weight: 500; color: #3DC9F0; letter-spacing: 0.05em;
+  margin-bottom: 0.75rem; align-self: flex-start;
+}
+.pf-dot { width: 6px; height: 6px; border-radius: 50%; background: #3DEEDB; }
+.pf-title {
+  font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 500; letter-spacing: -1px; line-height: 1; color: #0a0a0f; margin-bottom: 0.25rem;
+}
+.pf-subtitle { font-size: 1rem; color: #6E5DDD; font-weight: 500; margin-bottom: 0.75rem; }
+.pf-desc { font-size: 0.88rem; font-weight: 300; color: #888896; line-height: 1.7; margin-bottom: 1.25rem; }
+.pf-metrics {
+  display: flex; gap: 2rem; padding: 0.75rem 0;
+  border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05);
+  margin-bottom: 1.25rem;
+}
+.pf-metric { display: flex; flex-direction: column; gap: 2px; }
+.pf-mval {
+  font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600;
+  background: linear-gradient(135deg, #3DEEDB, #6E5DDD);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: -1px;
+}
+.pf-mlbl { font-size: 0.7rem; color: #888896; }
+.pf-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.pf-tags span {
+  font-size: 0.7rem; padding: 4px 12px; border-radius: 999px;
+  background: rgba(110,93,221,0.06); border: 1px solid rgba(110,93,221,0.15); color: #6E5DDD;
+}
+.pf-info { display: flex; flex-direction: column; }
+
+/* ── FitTrack rings ── */
+.pf-rings-hero {
+  position: relative; display: flex; align-items: center;
+  justify-content: center; min-height: 380px;
+}
+.pf-rings-svg { width: 260px; height: 260px; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.06)); }
+.pf-ring { animation: pfRingFill 2s cubic-bezier(0.4,0,0.2,1) forwards; }
+.pf-ring-move  { animation-delay: 0.2s; stroke-dashoffset: 502; }
+.pf-ring-exercise { animation-delay: 0.5s; stroke-dashoffset: 389; }
+.pf-ring-stand { animation-delay: 0.8s; stroke-dashoffset: 276; }
+@keyframes pfRingFill {
+  to { stroke-dashoffset: 60; }
+}
+.pf-float-stat {
+  position: absolute; background: white; border-radius: 14px;
+  padding: 10px 14px; box-shadow: 0 12px 32px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+  display: flex; align-items: center; gap: 10px;
+  animation: pfFloat 4s ease-in-out infinite;
+}
+.pf-float-top { top: 20px; left: 0; }
+.pf-float-bot { bottom: 30px; right: 0; animation-delay: 1.5s; }
+@keyframes pfFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.pf-float-icon { font-size: 1.25rem; }
+.pf-float-val {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600;
+  background: linear-gradient(135deg, #3DEEDB, #6E5DDD);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.pf-float-lbl { font-size: 0.65rem; color: #888896; }
+
+/* ── AuraCommerce browser ── */
+.pf-browser {
+  background: white; border-radius: 12px; border: 1px solid rgba(0,0,0,0.07);
+  overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.06); margin-bottom: 1.5rem; position: relative;
+}
+.pf-browser-bar {
+  display: flex; align-items: center; gap: 6px; padding: 10px 14px;
+  background: #f5f5f5; border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.pf-dot-red   { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; flex-shrink: 0; }
+.pf-dot-yellow{ width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e; flex-shrink: 0; }
+.pf-dot-green { width: 10px; height: 10px; border-radius: 50%; background: #28ca42; flex-shrink: 0; }
+.pf-url {
+  flex: 1; text-align: center; font-size: 0.7rem; color: #555;
+  padding: 3px 10px; background: white; border-radius: 6px; margin: 0 8px;
+}
+.pf-cart {
+  font-size: 0.75rem; font-weight: 600; color: #6E5DDD;
+  padding: 3px 10px; background: rgba(110,93,221,0.08); border-radius: 999px;
+}
+.pf-shop-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 14px; position: relative;
+}
+.pf-product { border-radius: 10px; overflow: hidden; background: #fafafa; border: 1px solid rgba(0,0,0,0.04); cursor: pointer; transition: all 0.3s; }
+.pf-product:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+.pf-product-img-wrap { position: relative; aspect-ratio: 1; overflow: hidden; background: #f0f0f0; }
+.pf-product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.pf-product:hover .pf-product-img-wrap img { transform: scale(1.06); }
+.pf-product-overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(110,93,221,0.8); color: white; font-size: 0.7rem; font-weight: 600;
+  opacity: 0; transition: opacity 0.25s;
+}
+.pf-product:hover .pf-product-overlay { opacity: 1; }
+.pf-product-name { font-size: 0.72rem; font-weight: 600; padding: 6px 8px 2px; color: #0a0a0f; }
+.pf-product-price { font-size: 0.82rem; font-weight: 700; padding: 0 8px 8px; color: #6E5DDD; font-family: 'Playfair Display', serif; }
+.pf-order-toast {
+  position: absolute; bottom: 12px; right: 12px;
+  background: linear-gradient(135deg, #22c55e, #16a34a); color: white;
+  padding: 7px 14px; border-radius: 999px; font-size: 0.7rem; font-weight: 600;
+  box-shadow: 0 8px 16px rgba(34,197,94,0.25);
+  animation: pfToast 8s ease-in-out infinite;
+}
+@keyframes pfToast {
+  0%,30% { opacity: 0; transform: translateX(20px); }
+  38%,58% { opacity: 1; transform: translateX(0); }
+  66%,100% { opacity: 0; transform: translateX(-20px); }
+}
+
+/* ── NovaChat workflow ── */
+.pf-workflow { padding: 0 0 1.5rem; }
+.pf-workflow-title { font-family: 'Playfair Display', serif; font-size: 0.9rem; color: #6E5DDD; margin-bottom: 1.25rem; }
+.pf-workflow-graph { display: flex; align-items: center; gap: 0; margin-bottom: 1.5rem; }
+.pf-node-group { display: flex; align-items: center; flex: 1; }
+.pf-node {
+  background: white; border: 1px solid rgba(110,93,221,0.15);
+  border-radius: 14px; padding: 12px 10px; text-align: center;
+  position: relative; min-width: 72px; transition: all 0.3s;
+}
+.pf-node:hover { border-color: rgba(110,93,221,0.4); transform: translateY(-2px); }
+.pf-node-gpt { background: linear-gradient(135deg, #6E5DDD, #3DC9F0); border-color: transparent; }
+.pf-node-icon { font-size: 1.4rem; margin-bottom: 4px; }
+.pf-node-label { font-size: 0.68rem; font-weight: 600; color: #0a0a0f; }
+.pf-node-gpt .pf-node-label { color: white; }
+.pf-node-pulse {
+  position: absolute; inset: 0; border-radius: 14px;
+  border: 2px solid #6E5DDD; animation: pfNodePulse 2s ease-out infinite; pointer-events: none;
+}
+@keyframes pfNodePulse { 0% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.15); } }
+.pf-conn { flex: 1; position: relative; height: 2px; background: linear-gradient(90deg, #3DEEDB, #6E5DDD); margin: 0 4px; opacity: 0.3; }
+.pf-particle {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 8px; height: 8px; border-radius: 50%;
+  background: linear-gradient(135deg, #3DEEDB, #6E5DDD);
+  box-shadow: 0 0 10px rgba(61,238,219,0.7);
+  animation: pfParticle 2s linear infinite;
+}
+@keyframes pfParticle { 0% { left: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+.pf-counters {
+  background: rgba(110,93,221,0.04); border: 1px solid rgba(110,93,221,0.1);
+  border-radius: 14px; padding: 0.9rem 1.1rem; display: flex; flex-direction: column; gap: 7px;
+}
+.pf-counter-row { display: flex; justify-content: space-between; font-size: 0.78rem; color: #888896; }
+.pf-counter-val { font-family: 'Playfair Display', serif; font-weight: 600; color: #0a0a0f; font-size: 0.9rem; }
+
+/* ── LogiX map ── */
+.pf-map-wrap {
+  border-radius: 16px; overflow: hidden;
+  background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+  border: 1px solid rgba(110,93,221,0.08); padding: 0.75rem;
+}
+.pf-eu-map { width: 100%; height: auto; display: block; }
+.pf-live-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; padding: 1rem 0; margin: 1rem 0; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); }
+.pf-live-stat { text-align: left; }
+.pf-ls-lbl { font-size: 0.65rem; color: #888896; margin-bottom: 3px; }
+.pf-ls-val {
+  font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 600;
+  background: linear-gradient(135deg, #3DEEDB, #6E5DDD);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: -1px;
+}
+.pf-ls-suffix { font-size: 1.2rem; }
+.pf-route { animation: pfRouteDash 3s linear infinite; }
+.pf-route-2 { animation-delay: 1s; }
+@keyframes pfRouteDash { to { stroke-dashoffset: -20; } }
+.pf-truck-1 { animation: pfTruck1 8s ease-in-out infinite; }
+.pf-truck-2 { animation: pfTruck2 8s ease-in-out infinite 2s; }
+.pf-truck-3 { animation: pfTruck3 8s ease-in-out infinite 4s; }
+@keyframes pfTruck1 { 0%,100% { transform:translate(0,0); } 50% { transform:translate(55px,-48px); } }
+@keyframes pfTruck2 { 0%,100% { transform:translate(0,0); } 50% { transform:translate(-38px,-28px); } }
+@keyframes pfTruck3 { 0%,100% { transform:translate(0,0); } 50% { transform:translate(-28px,22px); } }
+.pf-pin-pulse { animation: pfPinPulse 2s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes pfPinPulse { 0% { opacity: 0.6; transform: scale(1); } 100% { opacity: 0; transform: scale(2.2); } }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .pf-bento { grid-template-columns: 1fr; }
+  .pf-fittrack, .pf-logix { grid-column: span 1; }
+  .pf-wide-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .pf-rings-hero { min-height: 280px; }
+  .pf-rings-svg { width: 200px; height: 200px; }
+  .pf-float-top { top: 10px; left: -10px; }
+  .pf-float-bot { bottom: 10px; right: -10px; }
+}
+@media (max-width: 640px) {
+  .pf-bento { gap: 1rem; }
+  .portfolio-card { padding: 1.75rem; min-height: auto; }
+  .pf-shop-grid { grid-template-columns: repeat(2,1fr); }
+  .pf-workflow-graph { flex-wrap: wrap; gap: 8px; }
+  .pf-conn { display: none; }
+  .pf-node-group { flex: none; }
+}
 
 /* =============================================
    COOKIE BANNER
