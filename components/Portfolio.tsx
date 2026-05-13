@@ -262,7 +262,6 @@ export default function Portfolio() {
           <VerveVoidCard />
           <SensoraCard />
           <NovaChatCard />
-          <LogiXCard />
         </div>
       </div>
     </section>
