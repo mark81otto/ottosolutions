@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 
 type Message = {
   role: 'user' | 'assistant'
@@ -20,6 +20,7 @@ function TypingDots() {
 
 export default function AIChatbot() {
   const t = useTranslations('Chatbot')
+  const locale = useLocale()
 
   const [messages, setMessages] = useState<Message[]>([
     { role: 'assistant', content: t('welcome') },
@@ -47,7 +48,7 @@ export default function AIChatbot() {
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: newMessages }),
+        body: JSON.stringify({ messages: newMessages, locale }),
       })
 
       if (!response.ok || !response.body) throw new Error('API error')

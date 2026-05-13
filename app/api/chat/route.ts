@@ -1,5 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { NextRequest } from 'next/server'
+import { sendLeadEmail, extractEmail, extractName, extractProjectInfo } from '@/lib/sendLeadEmail'
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
@@ -74,15 +75,54 @@ User: "Wie schnell könnt ihr starten?"
 User: "Ich brauche eine Fitness-App"
 ✅ Gut: "Verstanden. Native für iOS/Android oder cross-platform? Und hast du schon eine ungefähre Feature-Liste im Kopf?"`
 
+// In-memory cache: prevents duplicate lead emails per unique address (1h TTL)
+const sentLeads = new Map<string, number>()
+const LEAD_TTL = 1000 * 60 * 60
+
+function pruneCache() {
+  const now = Date.now()
+  sentLeads.forEach((ts, key) => {
+    if (now - ts > LEAD_TTL) sentLeads.delete(key)
+  })
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { messages } = await req.json()
+    const { messages, locale = 'de' } = await req.json()
 
     if (!Array.isArray(messages) || messages.length === 0) {
       return new Response(JSON.stringify({ error: 'Invalid messages' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       })
+    }
+
+    // ── Lead email detection (fire-and-forget, never blocks the stream) ──
+    const userMessages = messages.filter((m: { role: string }) => m.role === 'user')
+    let foundEmail: string | null = null
+    for (const msg of userMessages) {
+      const e = extractEmail(msg.content)
+      if (e) { foundEmail = e; break }
+    }
+
+    if (foundEmail) {
+      pruneCache()
+      const alreadySent = Array.from(sentLeads.keys()).some(k => k.startsWith(foundEmail!))
+      if (!alreadySent) {
+        const name = extractName(messages)
+        const projectInfo = extractProjectInfo(messages)
+        const cacheKey = `${foundEmail}-${messages.length}`
+        sendLeadEmail({ email: foundEmail, name: name ?? undefined, projectInfo: projectInfo ?? undefined, messages, locale })
+          .then(result => {
+            if (result.success) {
+              console.log(`✓ Lead email sent for ${foundEmail}`)
+              sentLeads.set(cacheKey, Date.now())
+            } else {
+              console.error(`✗ Lead email failed: ${result.error}`)
+            }
+          })
+          .catch(err => console.error('Lead email error:', err))
+      }
     }
 
     // Limit context to last 20 messages to control costs
