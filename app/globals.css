@@ -453,42 +453,9 @@ html.lenis, html.lenis body { height: auto; }
   .iphone-scale-wrapper { transform: scale(0.82); transform-origin: top center; }
 }
 
-/* ══════════════════════════════════════════════
-   PORTFOLIO BENTO GRID
-   ══════════════════════════════════════════════ */
-
-.portfolio-bento {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-@media (min-width: 768px) {
-  .portfolio-bento { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-  .portfolio-bento .proj-1 { grid-column: span 2; }
-  .portfolio-bento .proj-4 { grid-column: span 2; }
-}
-@media (min-width: 1280px) {
-  .portfolio-bento { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-  .portfolio-bento .proj-1 { grid-column: span 2; grid-row: span 2; }
-  .portfolio-bento .proj-2 { grid-column: span 2; }
-  .portfolio-bento .proj-3 { grid-column: span 2; }
-  .portfolio-bento .proj-4 { grid-column: span 4; }
-}
-
 @keyframes subtleFloat {
   0%, 100% { transform: scale(1); }
   50%       { transform: scale(1.03); }
-}
-@keyframes pinFloat {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-3px); }
-}
-@keyframes pinPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50%       { transform: scale(1.2); opacity: 0.7; }
-}
-@keyframes routeDash {
-  to { stroke-dashoffset: -16; }
 }
 
 /* ══════════════════════════════════════════════
@@ -1006,13 +973,13 @@ html.lenis, html.lenis body { height: auto; }
 }
 .pf-lead { font-size: 1.05rem; color: #888896; font-weight: 300; max-width: 480px; line-height: 1.6; }
 
-/* Bento grid: VerveVoid (col 1-2), Sensora+Nova (col 1 + col 2), LogiX (col 1-2) */
+/* Bento grid: VerveVoid featured full-width top, Sensora + NovaChat below */
 .pf-bento {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
-.pf-verve, .pf-logix { grid-column: span 2; }
+.pf-verve { grid-column: span 2; }
 
 /* Card-link */
 .pf-card-link { display: block; text-decoration: none; color: inherit; }
@@ -1033,7 +1000,6 @@ html.lenis, html.lenis body { height: auto; }
 .pf-verve::before { top: -50px; right: -50px; background: radial-gradient(circle, rgba(139,111,71,0.10), transparent 70%); }
 .pf-sensora::before { bottom: -50px; left: -50px; background: radial-gradient(circle, rgba(20,184,166,0.08), transparent 70%); }
 .pf-nova::before { top: 0; right: 0; background: radial-gradient(circle, rgba(110,93,221,0.12), transparent 70%); }
-.pf-logix::before { top: 50%; left: 30%; width: 500px; background: radial-gradient(circle, rgba(61,201,240,0.08), transparent 70%); }
 .portfolio-card > * { position: relative; z-index: 1; }
 .portfolio-card:hover {
   transform: translateY(-4px);
@@ -1041,7 +1007,7 @@ html.lenis, html.lenis body { height: auto; }
   box-shadow: 0 20px 60px rgba(110,93,221,0.12), 0 0 80px rgba(61,238,219,0.08);
 }
 
-/* Wide layout (FitTrack + LogiX) */
+/* Wide layout (Verve & Void) */
 .pf-wide-layout {
   display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; height: 100%;
 }
@@ -1289,39 +1255,10 @@ html.lenis, html.lenis body { height: auto; }
 .pf-counter-row { display: flex; justify-content: space-between; font-size: 0.78rem; color: #888896; }
 .pf-counter-val { font-family: 'Playfair Display', serif; font-weight: 600; color: #0a0a0f; font-size: 0.9rem; }
 
-/* ── LogiX map ── */
-.pf-map-wrap {
-  border-radius: 16px; overflow: hidden;
-  background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
-  border: 1px solid rgba(110,93,221,0.08); padding: 0.75rem;
-}
-.pf-eu-map { width: 100%; height: auto; display: block; }
-.pf-live-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; padding: 1rem 0; margin: 1rem 0; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); }
-.pf-live-stat { text-align: left; }
-.pf-ls-lbl { font-size: 0.65rem; color: #888896; margin-bottom: 3px; }
-.pf-ls-val {
-  font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 600;
-  background: linear-gradient(135deg, #3DEEDB, #6E5DDD);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  letter-spacing: -1px;
-}
-.pf-ls-suffix { font-size: 1.2rem; }
-.pf-route { animation: pfRouteDash 3s linear infinite; }
-.pf-route-2 { animation-delay: 1s; }
-@keyframes pfRouteDash { to { stroke-dashoffset: -20; } }
-.pf-truck-1 { animation: pfTruck1 8s ease-in-out infinite; }
-.pf-truck-2 { animation: pfTruck2 8s ease-in-out infinite 2s; }
-.pf-truck-3 { animation: pfTruck3 8s ease-in-out infinite 4s; }
-@keyframes pfTruck1 { 0%,100% { transform:translate(0,0); } 50% { transform:translate(55px,-48px); } }
-@keyframes pfTruck2 { 0%,100% { transform:translate(0,0); } 50% { transform:translate(-38px,-28px); } }
-@keyframes pfTruck3 { 0%,100% { transform:translate(0,0); } 50% { transform:translate(-28px,22px); } }
-.pf-pin-pulse { animation: pfPinPulse 2s ease-out infinite; transform-box: fill-box; transform-origin: center; }
-@keyframes pfPinPulse { 0% { opacity: 0.6; transform: scale(1); } 100% { opacity: 0; transform: scale(2.2); } }
-
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .pf-bento { grid-template-columns: 1fr; }
-  .pf-verve, .pf-logix { grid-column: span 1; }
+  .pf-verve { grid-column: span 1; }
   .pf-wide-layout { grid-template-columns: 1fr; gap: 2rem; }
   .pf-vv-visual { min-height: 260px; }
   .pf-vv-icon-float { top: -10px; right: -10px; }

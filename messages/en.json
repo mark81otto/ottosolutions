@@ -107,14 +107,7 @@
     "p3m1": "−60%", "p3m1l": "Support load",
     "p3m2": "24/7", "p3m2l": "Available",
     "p3Metric1": "Support load",
-    "p3Metric2": "Availability",
-    "p4Cat": "Web App · Cross-Platform",
-    "p4Name": "LogiX",
-    "p4Title": "Logistics Platform for SMBs",
-    "p4Desc": "Real-time tracking, order management and driver app. Web dashboard for dispatchers, iOS for drivers.",
-    "p4m1": "200+", "p4m1l": "Trucks",
-    "p4m2": "12", "p4m2l": "Locations",
-    "p4m3": "Real-time", "p4m3l": "Tracking"
+    "p3Metric2": "Availability"
   },
   "About": {
     "tag": "About us",

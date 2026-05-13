@@ -107,14 +107,7 @@
     "p3m1": "−60%", "p3m1l": "Carga de soporte",
     "p3m2": "24/7", "p3m2l": "Disponible",
     "p3Metric1": "Carga de soporte",
-    "p3Metric2": "Disponibilidad",
-    "p4Cat": "Web App · Multiplataforma",
-    "p4Name": "LogiX",
-    "p4Title": "Plataforma Logística para PYMEs",
-    "p4Desc": "Tracking en tiempo real, gestión de pedidos y app para conductores. Dashboard web y iOS para conductores.",
-    "p4m1": "200+", "p4m1l": "Camiones",
-    "p4m2": "12", "p4m2l": "Ubicaciones",
-    "p4m3": "Tiempo real", "p4m3l": "Tracking"
+    "p3Metric2": "Disponibilidad"
   },
   "About": {
     "tag": "Sobre nosotros",
