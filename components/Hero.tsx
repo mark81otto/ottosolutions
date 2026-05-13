@@ -35,22 +35,19 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex flex-col items-center text-center px-4 sm:px-8 pt-20 pb-32 bg-white overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center text-center px-4 sm:px-8 pt-20 pb-24 bg-white overflow-hidden"
     >
-      {/* Subtle brand blob */}
+      {/* Subtle top glow */}
       <div
-        className="absolute w-[900px] h-[900px] rounded-full pointer-events-none blob-pulse"
-        style={{
-          background: 'radial-gradient(circle at 40% 40%, rgba(61,238,219,0.06), rgba(110,93,221,0.04) 50%, transparent 70%)',
-          top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-        }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-72 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at top, rgba(61,238,219,0.04) 0%, transparent 70%)' }}
       />
 
       {/* Main content */}
       <div className="flex-1 flex flex-col items-center justify-center w-full relative z-10">
         <h1
-          className="font-serif font-normal leading-[1.05] tracking-[-4px] text-ink mb-10 sm:mb-12"
-          style={{ fontSize: 'clamp(3.5rem, 14vw, 11rem)' }}
+          className="font-serif font-normal leading-[1.05] tracking-[-3px] text-ink mb-8 sm:mb-10"
+          style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)' }}
         >
           <span className="hero-word-wrap">
             <span className="hero-word-inner">{t('h1Line1')}</span>
