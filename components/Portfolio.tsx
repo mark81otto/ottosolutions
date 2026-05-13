@@ -1,6 +1,8 @@
 'use client'
 import { useTranslations } from 'next-intl'
 import { useEffect, useRef, useState } from 'react'
+import { useStaggerReveal } from '@/hooks/useStaggerReveal'
+import { useHeadlineReveal } from '@/hooks/useHeadlineReveal'
 
 /* ─── CountUp ──────────────────────────────────────────────────────── */
 function CountUp({ target, duration = 1500, suffix = '' }: {
@@ -316,6 +318,8 @@ function LogiXCard() {
 /* ─── Main Component ─────────────────────────────────────────────────── */
 export default function Portfolio() {
   const t = useTranslations('Portfolio')
+  useStaggerReveal('.portfolio-card', { stagger: 0.15 })
+  useHeadlineReveal('.pf-h2')
 
   return (
     <section id="portfolio" className="pf-section">

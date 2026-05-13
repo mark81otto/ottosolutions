@@ -1,6 +1,8 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
+import { useStaggerReveal } from '@/hooks/useStaggerReveal'
+import { useHeadlineReveal } from '@/hooks/useHeadlineReveal'
 
 /* ─── CountUp ──────────────────────────────────────────────────────── */
 function CountUp({ target, duration = 1500 }: { target: number; duration?: number }) {
@@ -47,6 +49,8 @@ function CountUp({ target, duration = 1500 }: { target: number; duration?: numbe
 /* ─── Main Component ───────────────────────────────────────────────── */
 export default function Stats() {
   const t = useTranslations('Stats')
+  useStaggerReveal('.stat-card', { stagger: 0.1 })
+  useHeadlineReveal('.stats-h2')
 
   return (
     <section className="stats-section">

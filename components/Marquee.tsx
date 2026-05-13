@@ -1,24 +1,32 @@
-const techs = [
-  'Swift', 'Kotlin', 'React Native', 'Next.js', 'TypeScript',
-  'React', 'Tailwind CSS', 'Expo', 'Vercel', 'Flutter', 'Supabase',
-  'OpenAI', 'Anthropic Claude', 'LangChain', 'Vector DBs',
-]
+'use client'
 
 export default function Marquee() {
-  const items = [...techs, ...techs]
+  const items = [
+    { text: 'Swift', italic: false },
+    { text: 'SwiftUI', italic: true },
+    { text: 'Kotlin', italic: false },
+    { text: 'Next.js', italic: true },
+    { text: 'TypeScript', italic: false },
+    { text: 'Tailwind', italic: true },
+    { text: 'Claude AI', italic: false },
+    { text: 'GPT-4', italic: true },
+    { text: 'LangChain', italic: false },
+    { text: 'Vercel', italic: true },
+  ]
+  const doubled = [...items, ...items]
 
   return (
-    <div className="border-t border-b border-black/[0.07] py-[0.9rem] overflow-hidden bg-white relative z-10">
-      <div className="marquee-track flex gap-12 w-max">
-        {items.map((t, i) => (
-          <span
-            key={i}
-            className="text-[0.75rem] text-black/20 whitespace-nowrap font-light flex items-center gap-12 after:content-['·'] after:opacity-40"
-          >
-            {t}
-          </span>
-        ))}
+    <section className="marquee-section">
+      <div className="marquee-track-wrap">
+        <div className="marquee-content">
+          {doubled.map((item, i) => (
+            <span key={i} className="marquee-item-group">
+              {item.italic ? <em>{item.text}</em> : item.text}
+              <span className="marquee-star">✦</span>
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

@@ -1,5 +1,7 @@
 'use client'
 import { useTranslations } from 'next-intl'
+import { useStaggerReveal } from '@/hooks/useStaggerReveal'
+import { useHeadlineReveal } from '@/hooks/useHeadlineReveal'
 
 export default function About() {
   const t = useTranslations('About')
@@ -46,6 +48,9 @@ export default function About() {
       titleKey: 'value4Title' as const, descKey: 'value4Desc' as const,
     },
   ]
+
+  useStaggerReveal('.about-card', { stagger: 0.12 })
+  useHeadlineReveal('.about-h2')
 
   return (
     <section id="about" className="about-section">

@@ -2,6 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Lenis smooth scroll ── */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+/* ── Hero Word Reveal ── */
+.hero-word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.06em 0 0.14em;
+  vertical-align: top;
+  line-height: inherit;
+}
+.hero-word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* ── Marquee Section ── */
+.marquee-section {
+  padding: 4.5rem 0;
+  background: #0a0a0f;
+  overflow: hidden;
+  position: relative;
+}
+.marquee-section::before,
+.marquee-section::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-section::before {
+  left: 0;
+  background: linear-gradient(90deg, #0a0a0f 0%, transparent 100%);
+}
+.marquee-section::after {
+  right: 0;
+  background: linear-gradient(-90deg, #0a0a0f 0%, transparent 100%);
+}
+.marquee-track-wrap {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+.marquee-content {
+  display: flex;
+  gap: 0;
+  flex-shrink: 0;
+  align-items: center;
+  white-space: nowrap;
+  animation: marqueeScroll 40s linear infinite;
+}
+.marquee-section:hover .marquee-content { animation-play-state: paused; }
+.marquee-item-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: rgba(255,255,255,0.8);
+}
+.marquee-item-group em {
+  font-style: italic;
+  background: linear-gradient(135deg, #3DEEDB, #3DC9F0, #6E5DDD);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.marquee-star {
+  font-size: 1.5rem;
+  color: #3DEEDB;
+  opacity: 0.45;
+  font-style: normal !important;
+  -webkit-text-fill-color: #3DEEDB !important;
+  background: none !important;
+}
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 @layer base {
   :root {
     --font-serif: 'Playfair Display', Georgia, serif;
@@ -100,13 +190,6 @@
   @keyframes floatblob {
     0%, 100% { transform: translate(0, 0); }
     50%      { transform: translate(20px, -20px); }
-  }
-
-  /* Marquee */
-  .marquee-track { animation: mq 28s linear infinite; }
-  @keyframes mq {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
   }
 
   /* Blink dot */

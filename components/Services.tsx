@@ -2,6 +2,9 @@
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { useReveal } from '@/hooks/useReveal'
+import { useStaggerReveal } from '@/hooks/useStaggerReveal'
+import { useHeadlineReveal } from '@/hooks/useHeadlineReveal'
+import MagneticButton from './MagneticButton'
 
 // ── App Card (inside Phone) ───────────────────────────────────
 function AppCard({ icon, name, tags, gradient, stats }: {
@@ -214,6 +217,8 @@ function Chip({ label }: { label: string }) {
 export default function Services() {
   const t = useTranslations('Services')
   const { ref: card3Ref, visible: card3Visible } = useReveal(0.25)
+  useStaggerReveal('.bento-card', { stagger: 0.12 })
+  useHeadlineReveal('.services-headline')
 
   return (
     <section id="services" className="py-20 md:py-40 px-5 md:px-10 bg-white">
@@ -225,7 +230,7 @@ export default function Services() {
           {t('tag')}
         </span>
         <h2
-          className="font-serif font-normal text-ink mb-5"
+          className="font-serif font-normal text-ink mb-5 services-headline"
           style={{ fontSize: 'clamp(2rem, 7vw, 5.5rem)', letterSpacing: '-2.5px', lineHeight: 1.02 }}
         >
           {t('h2Line1')}<br />
@@ -372,7 +377,7 @@ export default function Services() {
           <p className="text-[0.9rem] font-light text-mid mb-8">
             {t('ctaSub')}
           </p>
-          <a
+          <MagneticButton
             href="#contact"
             className="inline-flex items-center gap-2 text-[0.875rem] font-medium px-8 py-3.5 rounded-full no-underline min-h-[44px] transition-all hover:-translate-y-0.5"
             style={{
@@ -382,7 +387,7 @@ export default function Services() {
             }}
           >
             {t('ctaButton')} →
-          </a>
+          </MagneticButton>
         </div>
       </div>
 

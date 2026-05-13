@@ -5,6 +5,7 @@ import { getMessages, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import CookieBanner from '@/components/CookieBanner'
+import SmoothScrollProvider from '@/components/SmoothScrollProvider'
 import '../globals.css'
 
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif', display: 'swap' })
@@ -59,10 +60,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
       <body>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-          <CookieBanner />
-        </NextIntlClientProvider>
+        <SmoothScrollProvider>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+            <CookieBanner />
+          </NextIntlClientProvider>
+        </SmoothScrollProvider>
       </body>
     </html>
   )
