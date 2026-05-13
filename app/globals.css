@@ -2005,3 +2005,179 @@ html.lenis, html.lenis body { height: auto; }
   .sticky-visual { display: none; }
   .sticky-progress { display: none; }
 }
+
+/* ════════════════════════════════════════════
+   ZIGZAG TIMELINE (About Card 6)
+   ════════════════════════════════════════════ */
+
+.zigzag-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* SVG spine — 2px wide, runs full height, centered */
+.zt-svg {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 1px);
+  width: 2px;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+.zt-path {
+  stroke: url(#ztGrad);
+  stroke-width: 2;
+  stroke-dasharray: 999;
+  stroke-dashoffset: 999;
+}
+
+/* Each milestone row */
+.zt-item {
+  display: grid;
+  grid-template-columns: 1fr 88px 1fr;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding: 1.75rem 0;
+}
+.zt-item:first-child { padding-top: 0.5rem; }
+.zt-item:last-child  { padding-bottom: 0.5rem; }
+
+/* Side content panels */
+.zt-side {
+  padding: 0 1.5rem;
+}
+.zt-side-left  { text-align: right; }
+.zt-side-right { text-align: left; }
+
+/* Center column: glow + marker + year */
+.zt-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+/* Glow halo behind marker */
+.zt-glow-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -62%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(110, 93, 221, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.zt-future .zt-glow-ring { display: none; }
+
+/* Marker circle with icon */
+.zt-marker {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3DEEDB 0%, #3DC9F0 40%, #6E5DDD 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(110, 93, 221, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.zt-item:hover .zt-marker {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.9),
+    0 0 32px rgba(110, 93, 221, 0.5),
+    0 6px 20px rgba(0, 0, 0, 0.12);
+}
+.zt-future .zt-marker {
+  background: #ffffff;
+  border: 2px dashed rgba(110, 93, 221, 0.35);
+  color: #6E5DDD;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+.zt-marker-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Year badge below marker */
+.zt-year {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0a0a0f;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+.zt-future .zt-year { color: #888896; }
+
+/* Content: label + detail */
+.zt-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.zt-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0a0a0f;
+  line-height: 1.3;
+}
+.zt-detail {
+  font-size: 0.75rem;
+  color: #888896;
+  font-weight: 300;
+}
+.zt-future-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(110, 93, 221, 0.07);
+  border: 1px dashed rgba(110, 93, 221, 0.3);
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: #6E5DDD;
+  letter-spacing: 0.04em;
+  margin-top: 0.35rem;
+  align-self: flex-start;
+}
+.zt-side-left .zt-future-pill { align-self: flex-end; }
+
+/* ── Mobile: icon left, content right ── */
+@media (max-width: 600px) {
+  .zt-svg { left: 22px; }
+
+  .zt-item {
+    grid-template-columns: 60px 1fr;
+    padding: 1.25rem 0;
+  }
+  .zt-center {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  /* Both sides collapse to col 2 — only one has content per item */
+  .zt-side-left,
+  .zt-side-right {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+    padding: 0 0 0 0.75rem;
+  }
+  .zt-side-left .zt-future-pill { align-self: flex-start; }
+}

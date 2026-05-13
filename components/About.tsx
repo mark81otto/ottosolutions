@@ -1,18 +1,24 @@
 'use client'
+import { useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 import { useStaggerReveal } from '@/hooks/useStaggerReveal'
 import { useHeadlineReveal } from '@/hooks/useHeadlineReveal'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Flag, Smartphone, Sparkles, Globe2, Users } from 'lucide-react'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function About() {
   const t = useTranslations('About')
 
   const timelineItems = [
-    { emoji: '📅', yearKey: 'timeline1Year', labelKey: 'timeline1Label', detailKey: 'timeline1Detail', future: false },
-    { emoji: '🚀', yearKey: 'timeline2Year', labelKey: 'timeline2Label', detailKey: 'timeline2Detail', future: false },
-    { emoji: '🤖', yearKey: 'timeline3Year', labelKey: 'timeline3Label', detailKey: 'timeline3Detail', future: false },
-    { emoji: '🌍', yearKey: 'timeline4Year', labelKey: 'timeline4Label', detailKey: 'timeline4Detail', future: false },
-    { emoji: '✨', yearKey: 'timeline5Year', labelKey: 'timeline5Label', detailKey: 'timeline5Detail', future: true },
-  ] as const
+    { Icon: Flag,       yearKey: 'timeline1Year' as const, labelKey: 'timeline1Label' as const, detailKey: 'timeline1Detail' as const, future: false },
+    { Icon: Smartphone, yearKey: 'timeline2Year' as const, labelKey: 'timeline2Label' as const, detailKey: 'timeline2Detail' as const, future: false },
+    { Icon: Sparkles,   yearKey: 'timeline3Year' as const, labelKey: 'timeline3Label' as const, detailKey: 'timeline3Detail' as const, future: false },
+    { Icon: Globe2,     yearKey: 'timeline4Year' as const, labelKey: 'timeline4Label' as const, detailKey: 'timeline4Detail' as const, future: false },
+    { Icon: Users,      yearKey: 'timeline5Year' as const, labelKey: 'timeline5Label' as const, detailKey: 'timeline5Detail' as const, future: true  },
+  ]
 
   const values = [
     {
@@ -51,6 +57,47 @@ export default function About() {
 
   useStaggerReveal('.about-card', { stagger: 0.12 })
   useHeadlineReveal('.about-h2')
+
+  const timelineRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!timelineRef.current) return
+    const ctx = gsap.context(() => {
+      // Animate SVG spine on scroll
+      const path = timelineRef.current!.querySelector<SVGLineElement>('.zt-path')
+      if (path) {
+        ScrollTrigger.create({
+          trigger: timelineRef.current,
+          start: 'top 80%',
+          end: 'bottom 40%',
+          scrub: 1,
+          onUpdate: (self) => {
+            gsap.set(path, { strokeDashoffset: 999 * (1 - self.progress) })
+          },
+        })
+      }
+
+      // Stagger reveal + icon pop-in per milestone
+      const items = timelineRef.current!.querySelectorAll<HTMLElement>('.zt-item')
+      items.forEach((item, i) => {
+        gsap.set(item, { opacity: 0, y: 30 })
+        ScrollTrigger.create({
+          trigger: item,
+          start: 'top 90%',
+          once: true,
+          onEnter: () => {
+            gsap.to(item, { opacity: 1, y: 0, duration: 0.65, delay: i * 0.08, ease: 'power3.out' })
+            const icon = item.querySelector('.zt-marker-inner')
+            if (icon) {
+              gsap.from(icon, { scale: 0, duration: 0.45, delay: i * 0.08 + 0.25, ease: 'back.out(1.7)' })
+            }
+          },
+        })
+      })
+    }, timelineRef)
+
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section id="about" className="about-section">
@@ -463,102 +510,6 @@ export default function About() {
           font-weight: 300;
         }
 
-        /* Timeline Track */
-        .timeline-track {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 0.75rem;
-          position: relative;
-        }
-        .timeline-track::before {
-          content: '';
-          position: absolute;
-          top: 28px;
-          left: 5%;
-          right: 5%;
-          height: 2px;
-          background: linear-gradient(90deg,
-            #3DEEDB 0%,
-            #6E5DDD 80%,
-            rgba(110, 93, 221, 0.2) 100%
-          );
-          z-index: 0;
-        }
-        .timeline-item {
-          position: relative;
-          text-align: center;
-          padding-top: 64px;
-          z-index: 1;
-        }
-        .timeline-marker {
-          position: absolute;
-          top: 0; left: 50%;
-          transform: translateX(-50%);
-          width: 54px; height: 54px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.3rem;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-          transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .timeline-item.active .timeline-marker {
-          background: linear-gradient(135deg, #3DEEDB, #6E5DDD);
-          border: 2px solid transparent;
-          box-shadow: 0 8px 24px rgba(110, 93, 221, 0.3);
-        }
-        .timeline-item.future .timeline-marker {
-          background: white;
-          border: 2px dashed rgba(110, 93, 221, 0.3);
-          opacity: 0.7;
-        }
-        .timeline-item:hover .timeline-marker {
-          transform: translateX(-50%) scale(1.15);
-        }
-        .timeline-year {
-          font-family: 'Playfair Display', serif;
-          font-size: 1.2rem;
-          font-weight: 600;
-          color: #0a0a0f;
-          margin-bottom: 0.2rem;
-          letter-spacing: -0.5px;
-        }
-        .timeline-item.future .timeline-year { color: #888896; }
-        .timeline-label {
-          font-size: 0.78rem;
-          font-weight: 500;
-          color: #0a0a0f;
-          margin-bottom: 0.2rem;
-          line-height: 1.3;
-        }
-        .timeline-detail {
-          font-size: 0.65rem;
-          color: #888896;
-          font-weight: 300;
-        }
-
-        /* Mobile timeline */
-        @media (max-width: 767px) {
-          .timeline-track {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-          }
-          .timeline-track::before { display: none; }
-          .timeline-item {
-            text-align: left;
-            padding-top: 0;
-            padding-left: 70px;
-          }
-          .timeline-marker {
-            left: 0;
-            transform: none;
-            top: 0;
-          }
-          .timeline-item:hover .timeline-marker {
-            transform: scale(1.1);
-          }
-        }
       `}</style>
 
       <div className="about-inner">
@@ -642,7 +593,7 @@ export default function About() {
             </div>
           ))}
 
-          {/* CARD 6 — Timeline */}
+          {/* CARD 6 — Timeline (zigzag) */}
           <div className="about-card about-6">
             <div className="timeline-header">
               <div>
@@ -658,15 +609,44 @@ export default function About() {
               <p className="timeline-lead">{t('timelineLead')}</p>
             </div>
 
-            <div className="timeline-track">
-              {timelineItems.map((item) => (
-                <div className={`timeline-item ${item.future ? 'future' : 'active'}`} key={item.labelKey}>
-                  <div className="timeline-marker">{item.emoji}</div>
-                  <div className="timeline-year">{t(item.yearKey)}</div>
-                  <div className="timeline-label">{t(item.labelKey)}</div>
-                  <div className="timeline-detail">{t(item.detailKey)}</div>
-                </div>
-              ))}
+            {/* Zigzag timeline */}
+            <div className="zigzag-timeline" ref={timelineRef}>
+              {/* Animated SVG spine */}
+              <svg className="zt-svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="ztGrad" x1="0" y1="0" x2="0" y2="999" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#3DEEDB" />
+                    <stop offset="100%" stopColor="#6E5DDD" />
+                  </linearGradient>
+                </defs>
+                <line className="zt-path" x1="1" y1="0" x2="1" y2="999" />
+              </svg>
+
+              {timelineItems.map((item, i) => {
+                const isLeft = i % 2 === 0
+                const content = (
+                  <div className="zt-content">
+                    <div className="zt-label">{t(item.labelKey)}</div>
+                    <div className="zt-detail">{t(item.detailKey)}</div>
+                    {item.future && <div className="zt-future-pill">Planned</div>}
+                  </div>
+                )
+                return (
+                  <div key={item.labelKey} className={`zt-item${item.future ? ' zt-future' : ''}`}>
+                    <div className="zt-side zt-side-left">{isLeft ? content : null}</div>
+                    <div className="zt-center">
+                      <div className="zt-glow-ring" />
+                      <div className="zt-marker">
+                        <div className="zt-marker-inner">
+                          <item.Icon size={20} />
+                        </div>
+                      </div>
+                      <div className="zt-year">{t(item.yearKey)}</div>
+                    </div>
+                    <div className="zt-side zt-side-right">{!isLeft ? content : null}</div>
+                  </div>
+                )
+              })}
             </div>
           </div>
 
