@@ -98,31 +98,40 @@ export async function POST(req: NextRequest) {
     }
 
     // ── Lead email detection (fire-and-forget, never blocks the stream) ──
-    const userMessages = messages.filter((m: { role: string }) => m.role === 'user')
+    pruneCache()
     let foundEmail: string | null = null
-    for (const msg of userMessages) {
-      const e = extractEmail(msg.content)
-      if (e) { foundEmail = e; break }
+    for (const msg of messages) {
+      if (msg.role === 'user') {
+        const e = extractEmail(msg.content)
+        if (e) { foundEmail = e; break }
+      }
     }
 
-    if (foundEmail) {
-      pruneCache()
-      const alreadySent = Array.from(sentLeads.keys()).some(k => k.startsWith(foundEmail!))
-      if (!alreadySent) {
-        const name = extractName(messages)
-        const projectInfo = extractProjectInfo(messages)
-        const cacheKey = `${foundEmail}-${messages.length}`
-        sendLeadEmail({ email: foundEmail, name: name ?? undefined, projectInfo: projectInfo ?? undefined, messages, locale })
-          .then(result => {
-            if (result.success) {
-              console.log(`✓ Lead email sent for ${foundEmail}`)
-              sentLeads.set(cacheKey, Date.now())
-            } else {
-              console.error(`✗ Lead email failed: ${result.error}`)
-            }
-          })
-          .catch(err => console.error('Lead email error:', err))
-      }
+    if (foundEmail && !sentLeads.has(foundEmail)) {
+      // Mark as sent first to prevent parallel duplicates
+      sentLeads.set(foundEmail, Date.now())
+      const name        = extractName(messages)
+      const projectInfo = extractProjectInfo(messages)
+      sendLeadEmail({
+        email:       foundEmail,
+        name:        name        ?? undefined,
+        projectInfo: projectInfo ?? undefined,
+        messages,
+        locale,
+      })
+        .then(result => {
+          if (result.success) {
+            console.log(`✓ Lead email sent for ${foundEmail}`)
+          } else {
+            console.error(`✗ Lead email failed: ${result.error}`)
+            // Remove so next message can retry
+            sentLeads.delete(foundEmail!)
+          }
+        })
+        .catch(err => {
+          console.error('Lead email error:', err)
+          sentLeads.delete(foundEmail!)
+        })
     }
 
     // Limit context to last 20 messages to control costs
